@@ -15,8 +15,6 @@ Bookkeeper is a flexible finance tracker and CRM powered by [Laravel](https://la
 
  Laravel                            | Package
 :-----------------------------------|:----------
-
-
  barryvdh                           | ^2.3",
  doctrine/dbal                      | ^2.5",
  filp/whoops                        | 2.1",
