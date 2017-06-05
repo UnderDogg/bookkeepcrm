@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
-class Transaction extends Eloquent {
+class Transaction extends Eloquent
+{
 
     use Sortable, SearchableTrait;
 
@@ -65,8 +66,7 @@ class Transaction extends Eloquent {
     {
         $type = $type ?: request('f', 'all');
 
-        if (in_array($type, ['income', 'expense', 'income-i', 'expense-i']))
-        {
+        if (in_array($type, ['income', 'expense', 'income-i', 'expense-i'])) {
             $received = ends_with($type, '-i') ? 0 : 1;
             $type = rtrim($type, '-i');
 
@@ -95,8 +95,7 @@ class Transaction extends Eloquent {
      */
     public function setTagsAttribute($value)
     {
-        if ($this->exists)
-        {
+        if ($this->exists) {
             $this->tags()->sync(json_decode($value));
         }
     }
@@ -130,8 +129,7 @@ class Transaction extends Eloquent {
     {
         $keys = [];
 
-        foreach($this->tags as $tag)
-        {
+        foreach ($this->tags as $tag) {
             $keys[] = $tag->getKey();
         }
 
