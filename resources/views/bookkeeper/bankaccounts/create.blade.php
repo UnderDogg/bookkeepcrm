@@ -1,21 +1,25 @@
-@extends('layout.form')
+@section('modules')
+    @parent
 
-@php
-$currentSection = 'bookkeeping';
-$currentRoute = 'bookkeeper.bankaccounts.index';
-@endphp
+    <div class="transaction-buttons">
+        <a href="#" id="expenseButton" class="transaction-buttons__button transaction-buttons__button--expense"></a><a
+                href="#" id="incomeButton" class="transaction-buttons__button transaction-buttons__button--income"></a>
+    </div>
 
-@section('header_content')
-    @include('partials.header', [
-        'headerTitle' => $pageTitle,
-        'headerHint' => link_to_route('bookkeeper.bankaccounts.index', uppercase(trans('bankaccounts.title')))
-    ])
+
+    @include('transactions.modal')
 @endsection
 
-@section('form_buttons')
-    {!! submit_button('icon-list-add') !!}
-@endsection
 
-@section('content')
-    @include('partials.form')
+@section('scripts')
+    @parent
+
+    {{--window.bankaccountCurrencies = JSON.parse('{!! json_encode($bankaccountCurrencies) !!}');--}}
+
+    <script>
+        window.bankaccountModal = true;
+        window.locale = '{{ env('APP_LOCALE') }}';
+        window.currentBankAccount = '{{ $currentBankAccountId or get_default_bankaccount() }}';
+    </script>
+    {!! Theme::js('js/transactions.js') !!}
 @endsection

@@ -30,7 +30,7 @@
 @endsection
 
 @section('content_footer')
-    {!! back_to_all_link('Bankaccounts') !!}
+    {!! back_to_all_link('bankaccounts') !!}
 @endsection
 
 @include('bankaccounts.create')

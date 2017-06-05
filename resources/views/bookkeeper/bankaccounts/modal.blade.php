@@ -1,20 +1,20 @@
-<div class="modal" id="transactionModalContainer">
+<div class="modal" id="bankaccountModalContainer">
     <div class="modal__whiteout">
-        <div class="modal__inner transaction-modal" id="transactionModal"
-             data-posturl="{{ route('bookkeeper.transactions.store') }}">
-            <div class="transaction-modal__loader" id="transactionModalLoader"></div>
+        <div class="modal__inner bankaccount-modal" id="bankaccountModal"
+             data-posturl="{{ route('bookkeeper.bankaccounts.store') }}">
+            <div class="bankaccount-modal__loader" id="bankaccountModalLoader"></div>
 
             <div class="scroller">
                 <div>
-                    <h4 class="modal__heading modal__heading--success">{!! trans('transactions.add_income') !!}</h4>
-                    <h4 class="modal__heading modal__heading--danger">{!! trans('transactions.add_expense') !!}</h4>
-                    <p class="transaction-modal__flash" id="transactionFlashMessage"></p>
+                    <h4 class="modal__heading modal__heading--success">{!! trans('bankaccounts.add_income') !!}</h4>
+                    <h4 class="modal__heading modal__heading--danger">{!! trans('bankaccounts.add_expense') !!}</h4>
+                    <p class="bankaccount-modal__flash" id="bankaccountFlashMessage"></p>
 
                     <div class="modal__content">
 
                         <input type="hidden" name="t_type" value="" id="t_type">
 
-                        <div class="transaction-modal__column transaction-modal__column--main">
+                        <div class="bankaccount-modal__column bankaccount-modal__column--main">
                             {!! field_wrapper_open([], 't_name', $errors, 'form-group--inverted') !!}
                             {!! field_label(true, ['label' => trans('validation.attributes.name')], 't_name', $errors) !!}
                             {!! Form::text('t_name') !!}
@@ -48,19 +48,19 @@
                 {!! Form::text('t_date', date('Y-m-d H:i:s')) !!}
             </div>
 
-            <label class="form-group__checkbox transaction-modal__received">
+            <label class="form-group__checkbox bankaccount-modal__received">
                 {!! Form::checkbox('t_received', 1, true) !!}
                 <span>
                                     <i class="form-group__checkbox-icon icon-cancel button__icon button__icon--right">
-                                        <span>{{ uppercase(trans('transactions.received')) }}</span></i><i
+                                        <span>{{ uppercase(trans('bankaccounts.received')) }}</span></i><i
                             class="form-group__checkbox-icon icon-confirm button__icon button__icon--right">
-                        <span>{{ uppercase(trans('transactions.received')) }}</span></i>
+                        <span>{{ uppercase(trans('bankaccounts.received')) }}</span></i>
                                 </span>
             </label>
         </div>
-        <div class="transaction-modal__column transaction-modal__column--meta">
+        <div class="bankaccount-modal__column bankaccount-modal__column--meta">
             <div class="form-section"
-                 id="transactionTags"
+                 id="bankaccountTags"
                  data-searchurl="{{ route('bookkeeper.tags.search.json') }}">
 
                 <input type="hidden" name="t_tags" value="[]" id="t_tags">

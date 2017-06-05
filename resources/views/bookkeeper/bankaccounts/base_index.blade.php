@@ -6,8 +6,8 @@ $currentRoute = 'bookkeeper.bankaccounts.index';
 @endphp
 
 @section('actions')
-    @include('partials.search', ['key' => 'Bankaccounts'])
-    @include('partials.bulk', ['key' => 'Bankaccounts'])
+    @include('partials.search', ['key' => 'bankaccounts'])
+    @include('partials.bulk', ['key' => 'bankaccounts'])
 
 
     {!! header_action_open('bankaccountsnew', 'header__action--right') !!}

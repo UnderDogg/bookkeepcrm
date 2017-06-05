@@ -73,7 +73,7 @@ $currentRoute = 'bookkeeper.transactions.index';
     <script>
         window.transactionModal = false;
         window.locale = '{{ env('APP_LOCALE') }}';
-        window.accountCurrencies = JSON.parse('{!! json_encode($accountCurrencies) !!}');
+        window.bankaccountCurrencies = JSON.parse('{!! json_encode($bankaccountCurrencies) !!}');
     </script>
     {!! Theme::js('js/transactions.js') !!}
 @endsection
