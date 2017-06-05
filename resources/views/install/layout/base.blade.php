@@ -10,15 +10,16 @@
     <title>@yield('pageTitle') &mdash; Bookkeeper</title>
 
     {!! Theme::css('css/app.css') !!}
-    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300|Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300|Lato:400,700&subset=latin,latin-ext'
+          rel='stylesheet' type='text/css'>
 
 </head>
 <body class="body--auth">
 
-    @yield('body')
+@yield('body')
 
-    {!! Theme::js('js/app.js') !!}
-    {!! Theme::js('js/forms.js') !!}
+{!! Theme::js('js/app.js') !!}
+{!! Theme::js('js/forms.js') !!}
 
 </body>
 </html>

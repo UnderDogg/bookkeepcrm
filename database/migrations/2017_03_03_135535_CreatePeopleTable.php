@@ -37,8 +37,7 @@ class CreatePeopleTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('people_list_person', function (Blueprint $table)
-        {
+        Schema::create('people_list_person', function (Blueprint $table) {
             $table->integer('people_list_id')->unsigned();
             $table->integer('person_id')->unsigned();
 

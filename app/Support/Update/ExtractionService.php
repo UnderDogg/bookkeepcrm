@@ -8,7 +8,8 @@ use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
 use ZipArchive;
 
-class ExtractionService {
+class ExtractionService
+{
 
     /**
      * Path for keeping older files
@@ -70,22 +71,19 @@ class ExtractionService {
     {
         $fs = new Filesystem();
 
-        if ( ! $fs->exists($updatePath) || ! is_readable($updatePath))
-        {
+        if (!$fs->exists($updatePath) || !is_readable($updatePath)) {
             throw new RuntimeException(trans('update.no_update_found'));
         }
 
         $zip = new ZipArchive();
 
-        if ( ! $zip->open($updatePath))
-        {
+        if (!$zip->open($updatePath)) {
             throw new RuntimeException(trans('update.could_not_open_zip'));
         }
 
         $extractDir = $this->createExtractionDirectory($fs);
 
-        if ( ! $zip->extractTo($extractDir . '/'))
-        {
+        if (!$zip->extractTo($extractDir . '/')) {
             abort(500, trans('update.zip_could_not_be_extracted'));
         };
 
@@ -105,18 +103,15 @@ class ExtractionService {
     {
         $tempDirectory = tempnam(sys_get_temp_dir(), 'bookkeeper_update');
 
-        if ($fs->exists($tempDirectory))
-        {
+        if ($fs->exists($tempDirectory)) {
             unlink($tempDirectory);
         }
 
         $fs->makeDirectory($tempDirectory);
 
-        if (is_dir($tempDirectory))
-        {
+        if (is_dir($tempDirectory)) {
             return $tempDirectory;
-        } else
-        {
+        } else {
             throw new RuntimeException(trans('update.could_not_create_temporary_directory'));
         }
     }
@@ -158,13 +153,11 @@ class ExtractionService {
      */
     protected function validateDirectories(Filesystem $fs, $extractedPath, $root)
     {
-        if ( ! $fs->exists($extractedPath))
-        {
+        if (!$fs->exists($extractedPath)) {
             throw new RuntimeException(trans('update.extracted_files_not_found'));
         }
 
-        if ( ! is_writable($root))
-        {
+        if (!is_writable($root)) {
             throw new RuntimeException(trans('update.root_not_writable'));
         }
     }
@@ -180,8 +173,7 @@ class ExtractionService {
 
         $trashDir = base_path(static::UPDATE_TRASH_DIR);
 
-        if ($fs->exists($trashDir))
-        {
+        if ($fs->exists($trashDir)) {
             $fs->deleteDirectory($trashDir);
         }
 
@@ -202,8 +194,7 @@ class ExtractionService {
 
         $files = $vendor ? ['vendor'] : $this->getUpdateableFiles();
 
-        foreach ($files as $file)
-        {
+        foreach ($files as $file) {
             $this->replaceFile(
                 $fs,
                 $root . '/' . $file,
@@ -238,14 +229,12 @@ class ExtractionService {
     protected function replaceFile(Filesystem $fs, $destination, $temporary, $trash)
     {
         // Move to trash first if exists
-        if ($fs->exists($destination))
-        {
+        if ($fs->exists($destination)) {
             $this->moveFileOrDirectory($fs, $destination, $trash);
         }
 
         // Move the file only if exists in the update
-        if ($fs->exists($temporary))
-        {
+        if ($fs->exists($temporary)) {
             $this->moveFileOrDirectory($fs, $temporary, $destination);
         }
     }
@@ -257,17 +246,14 @@ class ExtractionService {
      */
     protected function moveFileOrDirectory(Filesystem $fs, $source, $destination)
     {
-        if (is_dir($source))
-        {
+        if (is_dir($source)) {
             $fs->copyDirectory($source, $destination);
             $fs->deleteDirectory($source);
-        } else
-        {
+        } else {
             // Create directory if it doesn't exist
             $parentDirectory = dirname($destination);
 
-            if ( ! $fs->exists($parentDirectory))
-            {
+            if (!$fs->exists($parentDirectory)) {
                 $fs->makeDirectory($parentDirectory, 0777, true);
             }
 

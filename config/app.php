@@ -90,13 +90,6 @@ return [
     */
     'full_locales' => [
         'en' => 'en.UTF-8',
-        'tr' => 'tr_TR.UTF-8',
-        'fr' => 'fr_FR.UTF-8',
-        'de' => 'de_DE.UTF-8',
-        'ru' => 'ru_RU.UTF-8',
-        'es' => 'es_ES.UTF-8',
-        'zh' => 'zh_CN.UTF-8',
-        'ja' => 'ja_JP.UTF-8',
     ],
 
     /*
@@ -231,9 +224,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Debugbar'    => Barryvdh\Debugbar\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
-        'Theme'       => igaster\laravelTheme\Facades\Theme::class,
+        'Theme' => igaster\laravelTheme\Facades\Theme::class,
     ],
 
 ];

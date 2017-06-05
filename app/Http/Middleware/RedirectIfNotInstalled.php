@@ -6,7 +6,8 @@ namespace Bookkeeper\Http\Middleware;
 
 use Closure;
 
-class RedirectIfNotInstalled {
+class RedirectIfNotInstalled
+{
 
     /**
      * Handle an incoming request.
@@ -18,8 +19,7 @@ class RedirectIfNotInstalled {
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if ( ! is_installed() && ! is_request_install())
-        {
+        if (!is_installed() && !is_request_install()) {
             return redirect()->route('install-welcome');
         }
 

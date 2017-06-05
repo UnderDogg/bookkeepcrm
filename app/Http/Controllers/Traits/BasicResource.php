@@ -6,7 +6,8 @@ namespace Bookkeeper\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
 
-trait BasicResource {
+trait BasicResource
+{
 
     /**
      * Display a listing of the resource.
@@ -156,7 +157,7 @@ trait BasicResource {
     protected function getResourceNames()
     {
         return [
-            'modelPath'        => $this->modelPath,
+            'modelPath' => $this->modelPath,
             'resourceMultiple' => $this->resourceMultiple,
             'resourceSingular' => $this->resourceSingular
         ];

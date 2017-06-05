@@ -6,7 +6,8 @@ namespace Bookkeeper\Http\Controllers\Traits;
 use Illuminate\Http\Request;
 use Bookkeeper\Users\User;
 
-trait UsesUserForms {
+trait UsesUserForms
+{
 
     /**
      * @return \Kris\LaravelFormBuilder\Form
@@ -34,7 +35,7 @@ trait UsesUserForms {
     protected function getEditForm($id, User $user)
     {
         return $this->form('Bookkeeper\Html\Forms\Users\EditForm', [
-            'url'   => route('bookkeeper.users.update', $id),
+            'url' => route('bookkeeper.users.update', $id),
             'model' => $user
         ]);
     }

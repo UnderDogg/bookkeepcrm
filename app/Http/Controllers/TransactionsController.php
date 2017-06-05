@@ -9,7 +9,8 @@ use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesTransactionForms;
 use Illuminate\Http\Request;
 
-class TransactionsController extends BookkeeperController {
+class TransactionsController extends BookkeeperController
+{
 
     use BasicResource, UsesTransactionForms;
 
@@ -45,15 +46,14 @@ class TransactionsController extends BookkeeperController {
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'name'       => 'required|max:255',
-            'type'       => 'required|in:income,expense',
-            'amount'     => 'required|integer',
+            'name' => 'required|max:255',
+            'type' => 'required|in:income,expense',
+            'amount' => 'required|integer',
             'account_id' => 'required|exists:accounts,id',
             'created_at' => 'required'
         ]);
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return response()->json([
                 'success' => false,
                 'message' => trans('transactions.error_saving')

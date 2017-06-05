@@ -7,8 +7,7 @@ require 'routes/common.php';
 Route::group(['middleware' => [
     'auth',
     'set-theme:' . config('themes.active')
-]], function ()
-{
+]], function () {
     require 'routes/accounts.php';
     require 'routes/lists.php';
     require 'routes/overview.php';

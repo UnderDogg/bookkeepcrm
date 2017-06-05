@@ -6,7 +6,8 @@ namespace Bookkeeper\Http\Controllers\Traits;
 use Bookkeeper\CRM\PeopleList;
 use Illuminate\Http\Request;
 
-trait UsesListForms {
+trait UsesListForms
+{
 
     /**
      * @return \Kris\LaravelFormBuilder\Form
@@ -34,7 +35,7 @@ trait UsesListForms {
     protected function getEditForm($id, PeopleList $list)
     {
         return $this->form('Bookkeeper\Html\Forms\Lists\EditForm', [
-            'url'   => route('bookkeeper.lists.update', $id),
+            'url' => route('bookkeeper.lists.update', $id),
             'model' => $list
         ]);
     }

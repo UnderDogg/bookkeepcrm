@@ -11,7 +11,8 @@ use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class TagsController extends BookkeeperController {
+class TagsController extends BookkeeperController
+{
 
     use BasicResource, UsesTagForms;
 

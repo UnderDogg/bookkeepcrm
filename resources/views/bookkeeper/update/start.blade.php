@@ -17,7 +17,9 @@ $currentRoute = null;
          data-starturl="{{ route('bookkeeper.update.download') }}"
          data-completeurl="{{ route('bookkeeper.update.index') }}"
     >
-        <h3 class="content-inner__heading content-inner__heading--success"><i id="updaterIcon" class="icon-sync animate-spin"></i> {{ trans('update.update_in_progress') }}</h3>
+        <h3 class="content-inner__heading content-inner__heading--success"><i id="updaterIcon"
+                                                                              class="icon-sync animate-spin"></i> {{ trans('update.update_in_progress') }}
+        </h3>
 
         <p id="updateMessage" class="content-inner__message">{{ trans('update.downloading_latest') }}</p>
 

@@ -5,7 +5,8 @@ namespace Bookkeeper\Html\Forms\Lists;
 
 use Kris\LaravelFormBuilder\Form;
 
-class AddListForm extends Form {
+class AddListForm extends Form
+{
 
     /**
      * Form options

@@ -5,7 +5,8 @@ namespace Bookkeeper\Html\Forms\Users;
 
 use Kris\LaravelFormBuilder\Form;
 
-class EditForm extends Form {
+class EditForm extends Form
+{
 
     /**
      * Form options

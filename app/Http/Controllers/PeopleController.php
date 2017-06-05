@@ -9,7 +9,8 @@ use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesPersonForms;
 use Illuminate\Http\Request;
 
-class PeopleController extends BookkeeperController {
+class PeopleController extends BookkeeperController
+{
 
     use BasicResource, UsesPersonForms;
 

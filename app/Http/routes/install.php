@@ -3,8 +3,7 @@
 Route::group([
     'prefix' => 'install',
     'middleware' => ['set-theme:' . config('themes.active_install')]
-], function ()
-{
+], function () {
 
     Route::get('welcome', [
         'as' => 'install-welcome',

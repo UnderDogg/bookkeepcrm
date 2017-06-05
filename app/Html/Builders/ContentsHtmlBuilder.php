@@ -3,7 +3,8 @@
 namespace Bookkeeper\Html\Builders;
 
 
-class ContentsHtmlBuilder {
+class ContentsHtmlBuilder
+{
 
     /**
      * Snippet for outputting opening of content tables
@@ -14,8 +15,7 @@ class ContentsHtmlBuilder {
      */
     public function contentTableOpen($sub = false, $wrapper = null)
     {
-        if ($sub && is_null($wrapper))
-        {
+        if ($sub && is_null($wrapper)) {
             $wrapper = '<div class="content-list-container content-list-container--sub">';
         }
 
@@ -49,8 +49,7 @@ class ContentsHtmlBuilder {
      */
     public function contentTableClose($sub = false, $wrapper = null)
     {
-        if ($sub and is_null($wrapper))
-        {
+        if ($sub and is_null($wrapper)) {
             $wrapper = '</div>';
         }
 
@@ -66,14 +65,13 @@ class ContentsHtmlBuilder {
      */
     public function contentListThumbnail($id, $thumbnail = '')
     {
-        if ( ! empty($thumbnail))
-        {
+        if (!empty($thumbnail)) {
             $thumbnail = '<div class="content-list__thumbnail">' . $thumbnail . '</div>';
         }
 
         return '<td class="content-list__cell content-list__cell--thumbnail">' .
-            \Form::checkbox('selected[]', $id, false, ['class' => 'content-list__checkbox']) .
-            $thumbnail . '</td>';
+        \Form::checkbox('selected[]', $id, false, ['class' => 'content-list__checkbox']) .
+        $thumbnail . '</td>';
     }
 
     /**

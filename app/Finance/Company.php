@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
-class Account extends Eloquent
+class Company extends Eloquent
 {
 
     use Sortable, SearchableTrait;

@@ -4,12 +4,13 @@
 namespace Bookkeeper\Html\Forms\Settings;
 
 
-use Bookkeeper\Finance\Account;
+use Bookkeeper\Finance\Company;
 use Bookkeeper\Support\Currencies\CurrencyHelper;
 use Bookkeeper\Support\Install\InstallHelper;
 use Kris\LaravelFormBuilder\Form;
 
-class EditForm extends Form {
+class EditForm extends Form
+{
 
     public function buildForm()
     {

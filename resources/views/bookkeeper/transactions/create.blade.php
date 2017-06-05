@@ -2,7 +2,8 @@
     @parent
 
     <div class="transaction-buttons">
-        <a href="#" id="expenseButton" class="transaction-buttons__button transaction-buttons__button--expense"></a><a href="#" id="incomeButton" class="transaction-buttons__button transaction-buttons__button--income"></a>
+        <a href="#" id="expenseButton" class="transaction-buttons__button transaction-buttons__button--expense"></a><a
+                href="#" id="incomeButton" class="transaction-buttons__button transaction-buttons__button--income"></a>
     </div>
 
     @include('transactions.modal')

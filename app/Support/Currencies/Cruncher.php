@@ -4,11 +4,12 @@
 namespace Bookkeeper\Support\Currencies;
 
 
-use Bookkeeper\Finance\Account;
+use Bookkeeper\Finance\Company;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
-class Cruncher {
+class Cruncher
+{
 
     /**
      * Crunches transactions for given transactions
@@ -24,8 +25,7 @@ class Cruncher {
 
         $accounts = $transactions->groupBy('account_id');
 
-        foreach ($accounts as $accountId => $transactions)
-        {
+        foreach ($accounts as $accountId => $transactions) {
             $rate = app('bookkeeper.support.currency')->getRateFor($accountId);
 
             $statistics = $this->mergeTransactionsWith($transactions, $statistics, $rate);
@@ -41,12 +41,12 @@ class Cruncher {
      * Crunches transactions for an account
      *
      * @param Collection $transactions
-     * @param Account $account
+     * @param Company $account
      * @param Carbon $start
      * @param Carbon $end
      * @return array
      */
-    public function compileAccountStatisticsFor(Collection $transactions, Account $account, Carbon $start, Carbon $end)
+    public function compileAccountStatisticsFor(Collection $transactions, Company $account, Carbon $start, Carbon $end)
     {
         list($statistics, $labels) = $this->getNewBaseForInterval($start, $end);
 
@@ -70,8 +70,7 @@ class Cruncher {
         $months = [];
         $labels = [];
 
-        while ($start->lt($end))
-        {
+        while ($start->lt($end)) {
             $months[$start->month] = 0;
             $labels[] = $start->formatLocalized('%b');
             $start->addMonth();
@@ -79,7 +78,7 @@ class Cruncher {
 
         return [
             [
-                'income'  => $months,
+                'income' => $months,
                 'expense' => $months
             ],
             $labels
@@ -96,9 +95,8 @@ class Cruncher {
      */
     protected function mergeTransactionsWith(Collection $transactions, array $statistics, $rate)
     {
-        foreach ($transactions as $transaction)
-        {
-            $statistics[$transaction->type][$transaction->created_at->month] +=  intval($transaction->amount)/$rate;
+        foreach ($transactions as $transaction) {
+            $statistics[$transaction->type][$transaction->created_at->month] += intval($transaction->amount) / $rate;
         }
 
         return $statistics;
@@ -118,9 +116,9 @@ class Cruncher {
         $profit = $totalIncome - $totalExpense;
 
         return [
-            'total_income'  => currency_string_for(floor($totalIncome), $accountId),
+            'total_income' => currency_string_for(floor($totalIncome), $accountId),
             'total_expense' => currency_string_for(floor($totalExpense), $accountId),
-            'total_profit'  => currency_string_for(floor($profit), $accountId),
+            'total_profit' => currency_string_for(floor($profit), $accountId),
         ];
     }
 
@@ -133,10 +131,8 @@ class Cruncher {
      */
     protected function normalizeStatistics(array $statistics, $accountId)
     {
-        foreach ($statistics as $category => $months)
-        {
-            foreach ($months as $month => $value)
-            {
+        foreach ($statistics as $category => $months) {
+            foreach ($months as $month => $value) {
                 $statistics[$category][$month] = currency_float_for(floor($value), $accountId);
             }
 

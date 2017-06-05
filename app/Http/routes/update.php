@@ -2,8 +2,7 @@
 
 Route::group([
     'prefix' => 'update'
-], function ()
-{
+], function () {
 
     Route::get('/', [
         'uses' => 'UpdateController@index',

@@ -4,10 +4,11 @@
 namespace Bookkeeper\Support\Currencies;
 
 
-use Bookkeeper\Finance\Account;
+use Bookkeeper\Finance\Company;
 use Cache;
 
-class CurrencyHelper {
+class CurrencyHelper
+{
 
     /** @var string */
     public $base = null;
@@ -26,7 +27,7 @@ class CurrencyHelper {
     /** @var array */
     public static $singleDecimalCurrencies = ['CNY'];
 
-    /** @var Account */
+    /** @var Company */
     protected $accounts = [];
 
     /**
@@ -38,8 +39,7 @@ class CurrencyHelper {
     {
         $currencies = [];
 
-        foreach (static::$currencies as $currency)
-        {
+        foreach (static::$currencies as $currency) {
             $currencies[$currency] = $currency;
         }
 
@@ -54,11 +54,9 @@ class CurrencyHelper {
      */
     public static function getDecimalDigitsFor($currency)
     {
-        if (in_array($currency, static::$zeroDecimalCurrencies))
-        {
+        if (in_array($currency, static::$zeroDecimalCurrencies)) {
             return 0;
-        } elseif (in_array($currency, static::$singleDecimalCurrencies))
-        {
+        } elseif (in_array($currency, static::$singleDecimalCurrencies)) {
             return 1;
         }
 
@@ -96,8 +94,7 @@ class CurrencyHelper {
      */
     protected function getAllRates()
     {
-        if ( ! Cache::has('bookkeeper.currency.rates'))
-        {
+        if (!Cache::has('bookkeeper.currency.rates')) {
             $defaultAccount = $this->getAccount(get_default_account());
 
             $json = file_get_contents('http://api.fixer.io/latest?base=' . $defaultAccount->currency);
@@ -112,25 +109,23 @@ class CurrencyHelper {
      * Converts amount to currency text
      *
      * @param int $amount
-     * @param int|Account $account
+     * @param int|Company $account
      * @return string
      */
     public function currencyStringFor($amount, $account)
     {
-        if ( ! $account instanceof Account) {
+        if (!$account instanceof Company) {
             $account = $this->getAccount($account);
         }
 
         $currency = $account->currency;
         $decimal = static::getDecimalDigitsFor($currency);
 
-        if ($amount == 0)
-        {
+        if ($amount == 0) {
             return $this->zeroCurrencyFloat($decimal) . ' ' . $currency;
         }
 
-        if ($decimal == 0)
-        {
+        if ($decimal == 0) {
             return $amount . ' ' . $currency;
         }
 
@@ -150,13 +145,11 @@ class CurrencyHelper {
 
         $decimal = static::getDecimalDigitsFor($account->currency);
 
-        if ($amount == 0)
-        {
+        if ($amount == 0) {
             return $this->zeroCurrencyFloat($decimal);
         }
 
-        if ($decimal == 0)
-        {
+        if ($decimal == 0) {
             return $amount;
         }
 
@@ -167,13 +160,12 @@ class CurrencyHelper {
      * Gets and caches an account
      *
      * @param int $id
-     * @return Account
+     * @return Company
      */
     protected function getAccount($id)
     {
-        if ( ! array_key_exists($id, $this->accounts))
-        {
-            $account = Account::findOrFail($id);
+        if (!array_key_exists($id, $this->accounts)) {
+            $account = Company::findOrFail($id);
             $this->accounts[$id] = $account;
         }
 
@@ -188,11 +180,9 @@ class CurrencyHelper {
      */
     protected function zeroCurrencyFloat($decimal)
     {
-        if ($decimal == 0)
-        {
+        if ($decimal == 0) {
             return 0;
-        } elseif ($decimal == 1)
-        {
+        } elseif ($decimal == 1) {
             return 0.0;
         }
 
@@ -209,10 +199,10 @@ class CurrencyHelper {
     protected function decimalCurrencyFloat($decimal, $amount)
     {
         if ($decimal == 1) {
-            return $amount/10;
+            return $amount / 10;
         }
 
-        return $amount/100;
+        return $amount / 100;
     }
 
 }

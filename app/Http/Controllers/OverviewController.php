@@ -8,14 +8,16 @@ use Bookkeeper\Finance\Transaction;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 
-class OverviewController extends BookkeeperController {
+class OverviewController extends BookkeeperController
+{
 
     /**
      * Shows the overview
      *
      * @return view
      */
-    public function index() {
+    public function index()
+    {
         $start = Carbon::now()->endOfMonth()->subYear()->addSecond();
         $end = Carbon::now()->endOfMonth();
 

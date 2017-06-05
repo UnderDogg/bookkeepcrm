@@ -37,8 +37,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'active'          => 'bookkeeper',
-    'active_install'  => 'install',
+    'active' => 'bookkeeper',
+    'active_install' => 'install',
 
     /*
     |--------------------------------------------------------------------------
@@ -47,13 +47,23 @@ return [
     */
 
     'themes' => [
-        'bookkeeper'  => [
-            'extends'    => null,
+        'bookkeeper' => [
+            'extends' => null,
             'views-path' => 'bookkeeper',
             'asset-path' => 'assets/bookkeeper',
         ],
-        'install'  => [
-            'extends'    => null,
+        'flatly' => [
+            'extends' => null,
+            'views-path' => 'flatly',
+            'asset-path' => 'assets/flatly',
+        ],
+        'flatback' => [
+            'extends' => null,
+            'views-path' => 'flatback',
+            'asset-path' => 'assets/flatback',
+        ],
+        'install' => [
+            'extends' => null,
             'views-path' => 'install',
             'asset-path' => 'assets/bookkeeper'
         ]

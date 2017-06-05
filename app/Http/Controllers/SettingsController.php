@@ -7,7 +7,8 @@ namespace Bookkeeper\Http\Controllers;
 use Bookkeeper\Support\Install\InstallHelper;
 use Illuminate\Http\Request;
 
-class SettingsController extends BookkeeperController {
+class SettingsController extends BookkeeperController
+{
 
     /**
      * Show the form for editing the specified resource.
@@ -28,8 +29,8 @@ class SettingsController extends BookkeeperController {
     {
         return $this->form('Bookkeeper\Html\Forms\Settings\EditForm', [
             'method' => 'PUT',
-            'url'    => route('bookkeeper.settings.update'),
-            'model'  => [
+            'url' => route('bookkeeper.settings.update'),
+            'model' => [
                 'APP_LOCALE' => env('APP_LOCALE'),
                 'DEFAULT_CURRENCY' => env('DEFAULT_CURRENCY'),
                 'DEFAULT_ACCOUNT' => get_default_account()

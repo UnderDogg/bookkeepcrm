@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Bookkeeper\Users\User;
 use Bookkeeper\Support\Install\InstallHelper;
 
-class InstallerController extends Controller {
+class InstallerController extends Controller
+{
 
     /**
      * Shows the "Welcome to Nuclear" page
@@ -21,9 +22,12 @@ class InstallerController extends Controller {
     {
         $missing = $helper->checkRequirements();
 
-        if ( ! file_exists(base_path('.env')))
-        {
+        if (!file_exists(base_path('.env'))) {
             copy(base_path('.env.example'), base_path('.env'));
+        }
+        else
+        {
+            return redirect()->route('bookkeeper.overview');
         }
 
         return view('welcome', compact('missing'));
@@ -64,13 +68,12 @@ class InstallerController extends Controller {
     public function postDatabase(Request $request, InstallHelper $helper)
     {
         foreach ([
-             'host'     => 'DB_HOST',
-             'port'     => 'DB_PORT',
-             'database' => 'DB_DATABASE',
-             'username' => 'DB_USERNAME',
-             'password' => 'DB_PASSWORD'
-         ] as $key => $envKey)
-        {
+                     'host' => 'DB_HOST',
+                     'port' => 'DB_PORT',
+                     'database' => 'DB_DATABASE',
+                     'username' => 'DB_USERNAME',
+                     'password' => 'DB_PASSWORD'
+                 ] as $key => $envKey) {
             $helper->setEnvVariable($envKey, $request->input($key));
             config()->set('database.connections.' . env('DB_CONNECTION') . '.' . $key, $request->input($key));
         }

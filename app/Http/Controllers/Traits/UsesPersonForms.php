@@ -7,7 +7,8 @@ use Bookkeeper\CRM\PeopleList;
 use Bookkeeper\CRM\Person;
 use Illuminate\Http\Request;
 
-trait UsesPersonForms {
+trait UsesPersonForms
+{
 
     /**
      * @return \Kris\LaravelFormBuilder\Form
@@ -35,7 +36,7 @@ trait UsesPersonForms {
     protected function getEditForm($id, Person $person)
     {
         return $this->form('Bookkeeper\Html\Forms\People\EditForm', [
-            'url'   => route('bookkeeper.people.update', $id),
+            'url' => route('bookkeeper.people.update', $id),
             'model' => $person
         ]);
     }

@@ -5,7 +5,8 @@ namespace Bookkeeper\Html\Builders;
 
 use Illuminate\Support\ViewErrorBag;
 
-class FormsHtmlBuilder {
+class FormsHtmlBuilder
+{
 
     /**
      * Creates a button
@@ -109,8 +110,7 @@ class FormsHtmlBuilder {
      */
     public function fieldLabel($showLabel, array $options, $name, ViewErrorBag $errors)
     {
-        if ($showLabel && !(isset($options['label']) && $options['label'] === false))
-        {
+        if ($showLabel && !(isset($options['label']) && $options['label'] === false)) {
             $class = isset($options['label_attr']['class']) ? $options['label_attr']['class'] : '';
             $options['label_attr']['class'] = 'form-group__label ' . ($errors->has($name) ? ' form-group__label--error ' : '') . $class;
 
@@ -135,8 +135,7 @@ class FormsHtmlBuilder {
     {
         $html = '<ul class="form-group__errors">';
 
-        foreach ($errors->get($name) as $error)
-        {
+        foreach ($errors->get($name) as $error) {
             $html .= '<li>' . $error . '</li>';
         }
 
@@ -152,20 +151,16 @@ class FormsHtmlBuilder {
      */
     public function fieldHelpBlock($name, array $options)
     {
-        if (array_get($options, 'fullWidth', false))
-        {
+        if (array_get($options, 'fullWidth', false)) {
             return '';
         }
 
         $html = '<div class="form-group-column form-group-column--help">';
 
-        if ( ! empty($options['help_block']['text']))
-        {
+        if (!empty($options['help_block']['text'])) {
             $html .= trans($options['help_block']['text']);
-        } else
-        {
-            if (trans()->has('hints.' . $name))
-            {
+        } else {
+            if (trans()->has('hints.' . $name)) {
                 $html .= trans('hints.' . $name);
             }
         }

@@ -8,11 +8,11 @@
 @section('scripts')
     <script>
         window.deleteModal = new Modal($('.modal--content'),
-            {
-                onConfirmEvent : function(dialog) {
-                    dialog.current.closest('form').submit();
-                }
-            },
-            $('.delete-form > .option-delete, .header__action--bulk .button--bulk-delete'));
+                {
+                    onConfirmEvent: function (dialog) {
+                        dialog.current.closest('form').submit();
+                    }
+                },
+                $('.delete-form > .option-delete, .header__action--bulk .button--bulk-delete'));
     </script>
 @endsection

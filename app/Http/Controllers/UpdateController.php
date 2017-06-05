@@ -7,7 +7,8 @@ namespace Bookkeeper\Http\Controllers;
 use Bookkeeper\Support\Update\ExtractionService;
 use Bookkeeper\Support\Update\UpdateService;
 
-class UpdateController extends BookkeeperController {
+class UpdateController extends BookkeeperController
+{
 
     /**
      * Shows the updates page
@@ -30,8 +31,7 @@ class UpdateController extends BookkeeperController {
      */
     public function start(UpdateService $updater)
     {
-        if ($updater->isBookkeeperCurrent())
-        {
+        if ($updater->isBookkeeperCurrent()) {
             flash()->error(trans('update.no_need_to_update'));
 
             return redirect()->route('bookkeeper.update.index');
@@ -52,27 +52,25 @@ class UpdateController extends BookkeeperController {
      */
     public function download(UpdateService $updater)
     {
-        if ($updater->isBookkeeperCurrent())
-        {
+        if ($updater->isBookkeeperCurrent()) {
             abort(500, trans('update.no_need_to_update'));
         }
 
         $fileName = $updater->downloadLatest();
 
-        if ($fileName !== false)
-        {
+        if ($fileName !== false) {
             session()->put('_temporary_update_path', $fileName);
 
             return response()->json([
-                'message'  => trans('update.extracting_update'),
-                'next'     => route('bookkeeper.update.extract'),
+                'message' => trans('update.extracting_update'),
+                'next' => route('bookkeeper.update.extract'),
                 'progress' => 45
             ]);
         }
 
         return response()->json([
-            'message'  => trans('update.downloading_latest'),
-            'next'     => route('bookkeeper.update.download'),
+            'message' => trans('update.downloading_latest'),
+            'next' => route('bookkeeper.update.download'),
             'progress' => 3 + (session('_update_download_offset', 0) * 6)
         ]);
     }
@@ -88,8 +86,7 @@ class UpdateController extends BookkeeperController {
     {
         $path = session('_temporary_update_path');
 
-        if (empty($path))
-        {
+        if (empty($path)) {
             abort(500, trans('update.no_update_found'));
         }
 
@@ -100,8 +97,8 @@ class UpdateController extends BookkeeperController {
         session()->put('_extracted_update_path', $extractedPath);
 
         return response()->json([
-            'message'  => trans('update.moving_files', ['part' => 1]),
-            'next'     => route('bookkeeper.update.empty'),
+            'message' => trans('update.moving_files', ['part' => 1]),
+            'next' => route('bookkeeper.update.empty'),
             'progress' => 60
         ]);
     }
@@ -117,8 +114,8 @@ class UpdateController extends BookkeeperController {
         $extractor->emptyTrash($extractor);
 
         return response()->json([
-            'message'  => trans('update.moving_files', ['part' => 2]),
-            'next'     => route('bookkeeper.update.move.vendor'),
+            'message' => trans('update.moving_files', ['part' => 2]),
+            'next' => route('bookkeeper.update.move.vendor'),
             'progress' => 70
         ]);
     }
@@ -134,16 +131,15 @@ class UpdateController extends BookkeeperController {
     {
         $path = session('_extracted_update_path');
 
-        if (empty($path))
-        {
+        if (empty($path)) {
             abort(500, trans('update.extracted_files_not_found'));
         }
 
         $updater->moveVendor($path, $extractor);
 
         return response()->json([
-            'message'  => trans('update.moving_files', ['part' => 3]),
-            'next'     => route('bookkeeper.update.move'),
+            'message' => trans('update.moving_files', ['part' => 3]),
+            'next' => route('bookkeeper.update.move'),
             'progress' => 80
         ]);
     }
@@ -159,16 +155,15 @@ class UpdateController extends BookkeeperController {
     {
         $path = session('_extracted_update_path');
 
-        if (empty($path))
-        {
+        if (empty($path)) {
             abort(500, trans('update.extracted_files_not_found'));
         }
 
         $updater->moveUpdate($path, $extractor);
 
         return response()->json([
-            'message'  => trans('update.finalizing_update'),
-            'next'     => route('bookkeeper.update.finalize'),
+            'message' => trans('update.finalizing_update'),
+            'next' => route('bookkeeper.update.finalize'),
             'progress' => 90
         ]);
     }
@@ -184,8 +179,8 @@ class UpdateController extends BookkeeperController {
         $updater->finalizeUpdate();
 
         return response()->json([
-            'message'  => trans('update.update_complete'),
-            'next'     => null,
+            'message' => trans('update.update_complete'),
+            'next' => null,
             'progress' => 100
         ]);
     }

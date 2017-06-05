@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
-class Person extends Eloquent {
+class Person extends Eloquent
+{
 
     use Sortable, SearchableTrait;
 
@@ -54,9 +55,9 @@ class Person extends Eloquent {
     protected $searchable = [
         'columns' => [
             'first_name' => 10,
-            'last_name'  => 10,
-            'email'      => 10,
-            'company'    => 10
+            'last_name' => 10,
+            'email' => 10,
+            'company' => 10
         ]
     ];
 

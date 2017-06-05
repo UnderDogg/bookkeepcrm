@@ -8,7 +8,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Response;
 
-class UpdateService {
+class UpdateService
+{
 
     /** @var string */
     const releasesURL = 'https://api.github.com/repos/kenarkose/bookkeeper/releases';
@@ -34,25 +35,21 @@ class UpdateService {
      */
     public function getReleases()
     {
-        if ($this->releases)
-        {
+        if ($this->releases) {
             return $this->releases;
         }
 
-        try
-        {
+        try {
             $response = $this->httpClient->get(static::releasesURL);
 
-            if (Response::HTTP_OK === $response->getStatusCode())
-            {
+            if (Response::HTTP_OK === $response->getStatusCode()) {
                 $this->releases = json_decode($response->getBody());
 
                 return $this->releases;
             }
 
             return false;
-        } catch (RequestException $e)
-        {
+        } catch (RequestException $e) {
             return false;
         }
     }
@@ -75,10 +72,8 @@ class UpdateService {
      */
     public function getLatestRelease()
     {
-        foreach ($this->getReleases() as $release)
-        {
-            if ($release->draft === false)
-            {
+        foreach ($this->getReleases() as $release) {
+            if ($release->draft === false) {
                 return $release;
             }
         }
@@ -93,8 +88,7 @@ class UpdateService {
      */
     public function downloadLatest()
     {
-        if ( ! ($downloadURL = session('_update_download_link', null)))
-        {
+        if (!($downloadURL = session('_update_download_link', null))) {
             $downloadURL = $this->getLatestDownloadLink();
 
             session()->put('_update_download_link', $downloadURL);
@@ -112,8 +106,7 @@ class UpdateService {
     {
         $latest = $this->getLatestRelease();
 
-        if ( ! isset($latest->assets[0]) or empty($latest->assets[0]->browser_download_url))
-        {
+        if (!isset($latest->assets[0]) or empty($latest->assets[0]->browser_download_url)) {
             abort(500, trans('update.no_archive_to_download'));
         }
 
@@ -128,8 +121,7 @@ class UpdateService {
      */
     protected function downloadUpdateFromURL($downloadURL)
     {
-        if ( ! ($fileName = session('_update_download_filename', null)))
-        {
+        if (!($fileName = session('_update_download_filename', null))) {
             $fileName = tempnam(sys_get_temp_dir(), 'bookkeeper_update.zip');
 
             session()->put('_update_download_filename', $fileName);
@@ -157,8 +149,8 @@ class UpdateService {
         $ch = curl_init();
 
         curl_setopt_array($ch, [
-            CURLOPT_URL            => $downloadURL,
-            CURLOPT_RANGE          => 2097152 * $readOffset . '-' . (2097152 * ($readOffset + 1)-1),
+            CURLOPT_URL => $downloadURL,
+            CURLOPT_RANGE => 2097152 * $readOffset . '-' . (2097152 * ($readOffset + 1) - 1),
             CURLOPT_BINARYTRANSFER => 1,
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_FOLLOWLOCATION => 1,
@@ -168,8 +160,7 @@ class UpdateService {
         $info = curl_getinfo($ch);
         curl_close($ch);
 
-        if ($info['http_code'] == '206')
-        {
+        if ($info['http_code'] == '206') {
             fwrite($download, $result);
 
             session()->put('_update_download_offset', $readOffset + 1);

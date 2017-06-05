@@ -3,8 +3,7 @@
 use Illuminate\Support\ViewErrorBag;
 
 
-if ( ! function_exists('content_table_open'))
-{
+if (!function_exists('content_table_open')) {
     /**
      * Snippet for outputting opening of content tables
      *
@@ -18,8 +17,7 @@ if ( ! function_exists('content_table_open'))
     }
 }
 
-if ( ! function_exists('content_table_middle'))
-{
+if (!function_exists('content_table_middle')) {
     /**
      * Snippet for outputting middle parts of content tables
      *
@@ -31,8 +29,7 @@ if ( ! function_exists('content_table_middle'))
     }
 }
 
-if ( ! function_exists('content_table_close'))
-{
+if (!function_exists('content_table_close')) {
     /**
      * Snippet for outputting closing of content tables
      *
@@ -46,8 +43,7 @@ if ( ! function_exists('content_table_close'))
     }
 }
 
-if ( ! function_exists('content_list_thumbnail'))
-{
+if (!function_exists('content_list_thumbnail')) {
     /**
      * Snippet for displaying the selection/thumbnail column
      *
@@ -61,8 +57,7 @@ if ( ! function_exists('content_list_thumbnail'))
     }
 }
 
-if ( ! function_exists('content_options_open'))
-{
+if (!function_exists('content_options_open')) {
     /**
      * Snippet for displaying content options opening
      *
@@ -76,8 +71,7 @@ if ( ! function_exists('content_options_open'))
     }
 }
 
-if ( ! function_exists('content_options_close'))
-{
+if (!function_exists('content_options_close')) {
     /**
      * Snippet for displaying content options closing
      *
@@ -90,8 +84,7 @@ if ( ! function_exists('content_options_close'))
     }
 }
 
-if ( ! function_exists('content_options'))
-{
+if (!function_exists('content_options')) {
     /**
      * Snippet for displaying standard content options
      *
@@ -105,8 +98,7 @@ if ( ! function_exists('content_options'))
     }
 }
 
-if ( ! function_exists('header_action_open'))
-{
+if (!function_exists('header_action_open')) {
     /**
      * Snippet for displaying header action opening
      *
@@ -121,8 +113,7 @@ if ( ! function_exists('header_action_open'))
     }
 }
 
-if ( ! function_exists('header_action_close'))
-{
+if (!function_exists('header_action_close')) {
     /**
      * Snippet for displaying header action closing
      *
@@ -134,8 +125,7 @@ if ( ! function_exists('header_action_close'))
     }
 }
 
-if ( ! function_exists('no_results_row'))
-{
+if (!function_exists('no_results_row')) {
     /**
      * Snippet for displaying no results row on tables
      *
@@ -148,8 +138,7 @@ if ( ! function_exists('no_results_row'))
     }
 }
 
-if ( ! function_exists('back_to_all_link'))
-{
+if (!function_exists('back_to_all_link')) {
     /**
      * Snippet for generating back links (mainly for search pages)
      *
@@ -162,8 +151,7 @@ if ( ! function_exists('back_to_all_link'))
     }
 }
 
-if ( ! function_exists('button'))
-{
+if (!function_exists('button')) {
     /**
      * Creates a button
      *
@@ -180,8 +168,7 @@ if ( ! function_exists('button'))
     }
 }
 
-if ( ! function_exists('submit_button'))
-{
+if (!function_exists('submit_button')) {
     /**
      * Snippet for generating a submit button
      *
@@ -198,8 +185,7 @@ if ( ! function_exists('submit_button'))
 
 }
 
-if ( ! function_exists('action_button'))
-{
+if (!function_exists('action_button')) {
     /**
      * Snippet for generating an action button
      *
@@ -216,8 +202,7 @@ if ( ! function_exists('action_button'))
     }
 }
 
-if ( ! function_exists('field_wrapper_open'))
-{
+if (!function_exists('field_wrapper_open')) {
     /**
      * Returns wrapper opening
      *
@@ -233,8 +218,7 @@ if ( ! function_exists('field_wrapper_open'))
     }
 }
 
-if ( ! function_exists('field_wrapper_close'))
-{
+if (!function_exists('field_wrapper_close')) {
     /**
      * Returns field wrapper closing
      *
@@ -247,8 +231,7 @@ if ( ! function_exists('field_wrapper_close'))
     }
 }
 
-if ( ! function_exists('field_label'))
-{
+if (!function_exists('field_label')) {
     /**
      * Returns field label
      *
@@ -264,8 +247,7 @@ if ( ! function_exists('field_label'))
     }
 }
 
-if ( ! function_exists('field_errors'))
-{
+if (!function_exists('field_errors')) {
     /**
      * Returns errors for the field
      *
@@ -279,8 +261,7 @@ if ( ! function_exists('field_errors'))
     }
 }
 
-if ( ! function_exists('field_help_block'))
-{
+if (!function_exists('field_help_block')) {
     /**
      * Creates a field help block
      *
@@ -294,8 +275,7 @@ if ( ! function_exists('field_help_block'))
     }
 }
 
-if ( ! function_exists('delete_form'))
-{
+if (!function_exists('delete_form')) {
     /**
      * Snippet for for outputting html for delete forms
      *

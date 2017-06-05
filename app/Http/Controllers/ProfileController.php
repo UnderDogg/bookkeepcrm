@@ -6,7 +6,8 @@ namespace Bookkeeper\Http\Controllers;
 use Illuminate\Http\Request;
 use Bookkeeper\Http\Controllers\Traits\UsesProfileForms;
 
-class ProfileController extends BookkeeperController {
+class ProfileController extends BookkeeperController
+{
 
     use UsesProfileForms;
 

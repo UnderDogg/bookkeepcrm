@@ -2,10 +2,11 @@
 
 namespace Bookkeeper\Providers;
 
-use Bookkeeper\Finance\Account;
+use Bookkeeper\Finance\Company;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider {
+class AppServiceProvider extends ServiceProvider
+{
 
     const VERSION = '0.9-alpha.3';
 
@@ -54,24 +55,20 @@ class AppServiceProvider extends ServiceProvider {
      */
     protected function registerViewBindings()
     {
-        if ( ! is_installed())
-        {
+        if (!is_installed()) {
             return;
         }
 
-        view()->composer('*', function ($view)
-        {
+        view()->composer('*', function ($view) {
             $view->with('currentUser', auth()->user());
         });
 
-        view()->composer('transactions.create', function ($view)
-        {
-            $view->with('accountCurrencies', Account::all()
+        view()->composer('transactions.create', function ($view) {
+            $view->with('accountCurrencies', Company::all()
                 ->pluck('currency', 'id')->toArray());
         });
-        view()->composer('transactions.edit', function ($view)
-        {
-            $view->with('accountCurrencies', Account::all()
+        view()->composer('transactions.edit', function ($view) {
+            $view->with('accountCurrencies', Company::all()
                 ->pluck('currency', 'id')->toArray());
         });
     }

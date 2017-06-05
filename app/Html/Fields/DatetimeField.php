@@ -6,7 +6,8 @@ namespace Bookkeeper\Html\Fields;
 
 use Kris\LaravelFormBuilder\Fields\FormField;
 
-class DatetimeField extends FormField {
+class DatetimeField extends FormField
+{
 
     /**
      * Get the template, can be config variable or view path

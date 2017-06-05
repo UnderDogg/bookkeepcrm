@@ -5,12 +5,13 @@ namespace Bookkeeper\Http\Controllers;
 
 
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
-use Bookkeeper\Finance\Account;
+use Bookkeeper\Finance\Company;
 use Bookkeeper\Http\Controllers\Traits\UsesAccountForms;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 
-class AccountsController extends BookkeeperController {
+class AccountsController extends BookkeeperController
+{
 
     use BasicResource, UsesAccountForms;
 
@@ -19,7 +20,7 @@ class AccountsController extends BookkeeperController {
      *
      * @var string
      */
-    protected $modelPath = Account::class;
+    protected $modelPath = Company::class;
     protected $resourceMultiple = 'accounts';
     protected $resourceSingular = 'account';
 
@@ -31,7 +32,7 @@ class AccountsController extends BookkeeperController {
      */
     public function transactions($id)
     {
-        $account = Account::findOrFail($id);
+        $account = Company::findOrFail($id);
 
         $transactions = $account->transactions()
             ->sortable()->paginate();
@@ -47,7 +48,7 @@ class AccountsController extends BookkeeperController {
      */
     public function overview($id)
     {
-        $account = Account::findOrFail($id);
+        $account = Company::findOrFail($id);
 
         $start = Carbon::now()->endOfMonth()->subYear()->addSecond();
         $end = Carbon::now()->endOfMonth();

@@ -6,7 +6,8 @@ namespace Bookkeeper\Http\Controllers\Traits;
 use Illuminate\Http\Request;
 use Bookkeeper\Users\User;
 
-trait UsesProfileForms {
+trait UsesProfileForms
+{
 
     /**
      * @param User $profile
@@ -15,7 +16,7 @@ trait UsesProfileForms {
     protected function getEditProfileForm(User $profile)
     {
         return $this->form('Bookkeeper\Html\Forms\Users\EditForm', [
-            'url'   => route('bookkeeper.profile.update'),
+            'url' => route('bookkeeper.profile.update'),
             'model' => $profile
         ]);
     }

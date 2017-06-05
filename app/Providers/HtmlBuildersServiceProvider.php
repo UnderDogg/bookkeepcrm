@@ -5,7 +5,8 @@ namespace Bookkeeper\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class HtmlBuildersServiceProvider extends ServiceProvider {
+class HtmlBuildersServiceProvider extends ServiceProvider
+{
 
     /**
      * Indicates if loading of the provider is deferred.

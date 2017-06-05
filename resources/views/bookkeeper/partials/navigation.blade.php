@@ -9,7 +9,8 @@
                     @if($currentSection === $section)
                         <span class="navigation__section navigation__section--active">{{ uppercase(trans('general.' . $section)) }}</span>
                     @else
-                        <a href="{{ route($route) }}" class="navigation__section">{{ uppercase(trans('general.' . $section)) }}</a>
+                        <a href="{{ route($route) }}"
+                           class="navigation__section">{{ uppercase(trans('general.' . $section)) }}</a>
                     @endif
                 @endforeach
             </div>
@@ -21,8 +22,10 @@
                     <div class="dropdown navigation-module__dropdown">
                         <div class="dropdown__info">{{ uppercase(trans('users.title')) }}</div>
                         <ul class="dropdown-sub">
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.users.index') }}"><i class="icon-users"></i>{{ trans('users.index') }}</a></li>
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.users.create') }}"><i class="icon-user-create"></i>{{ trans('users.create') }}</a></li>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.users.index') }}"><i
+                                            class="icon-users"></i>{{ trans('users.index') }}</a></li>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.users.create') }}"><i
+                                            class="icon-user-create"></i>{{ trans('users.create') }}</a></li>
                         </ul>
                     </div>
                 </li>
@@ -32,8 +35,10 @@
                     <div class="dropdown navigation-module__dropdown">
                         <div class="dropdown__info">{{ uppercase(trans('settings.title')) }}</div>
                         <ul class="dropdown-sub">
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.settings.edit') }}"><i class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.update.index') }}"><i class="icon-sync"></i>{{ trans('update.index') }}</a></li>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.settings.edit') }}"><i
+                                            class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.update.index') }}"><i
+                                            class="icon-sync"></i>{{ trans('update.index') }}</a></li>
                         </ul>
                     </div>
                 </li>
@@ -46,9 +51,12 @@
                     <div class="dropdown navigation-module__dropdown">
                         <div class="dropdown__info">{{ uppercase($currentUser->presentFullName()) }}</div>
                         <ul class="dropdown-sub">
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.profile.edit') }}"><i class="icon-profile"></i>{{ trans('users.update_profile') }}</a>
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.profile.password') }}"><i class="icon-lock"></i>{{ trans('users.change_password') }}</a>
-                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.auth.logout') }}"><i class="icon-logout"></i>{{ trans('auth.logout') }}</a>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.profile.edit') }}"><i
+                                            class="icon-profile"></i>{{ trans('users.update_profile') }}</a>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.profile.password') }}"><i
+                                            class="icon-lock"></i>{{ trans('users.change_password') }}</a>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.auth.logout') }}"><i
+                                            class="icon-logout"></i>{{ trans('auth.logout') }}</a>
                         </ul>
                     </div>
                 </li>

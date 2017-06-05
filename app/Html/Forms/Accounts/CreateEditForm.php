@@ -6,7 +6,8 @@ namespace Bookkeeper\Html\Forms\Accounts;
 use Bookkeeper\Support\Currencies\CurrencyHelper;
 use Kris\LaravelFormBuilder\Form;
 
-class CreateEditForm extends Form {
+class CreateEditForm extends Form
+{
 
     public function buildForm()
     {

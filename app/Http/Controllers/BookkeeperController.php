@@ -4,11 +4,11 @@
 namespace Bookkeeper\Http\Controllers;
 
 
-
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilderTrait;
 
-abstract class BookkeeperController extends Controller {
+abstract class BookkeeperController extends Controller
+{
 
     use FormBuilderTrait;
 
@@ -35,8 +35,7 @@ abstract class BookkeeperController extends Controller {
      */
     public function notify($flash = null, $type = 'success')
     {
-        if ( ! is_null($flash))
-        {
+        if (!is_null($flash)) {
             flash()->{$type}(trans($flash));
         }
     }

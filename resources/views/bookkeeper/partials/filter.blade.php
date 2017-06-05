@@ -6,8 +6,8 @@
     <select name="_filter" id="contentFilter">
         @foreach($filterTypes as $filter)
             <option value="{{ $filter }}"
-                data-filterurl="{{ route('bookkeeper.' . $key . '.' . ($filterSearch ? 'search' : 'index'), ['f' => $filter, 'q' => request('q')]) }}"
-                {!! ($currentFilter === $filter) ? 'selected' : '' !!}
+                    data-filterurl="{{ route('bookkeeper.' . $key . '.' . ($filterSearch ? 'search' : 'index'), ['f' => $filter, 'q' => request('q')]) }}"
+                    {!! ($currentFilter === $filter) ? 'selected' : '' !!}
             >{{ trans($key . '.filter_' . $filter) }}</option>
         @endforeach
     </select>

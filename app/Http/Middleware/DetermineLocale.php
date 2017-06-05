@@ -7,7 +7,8 @@ use Carbon\Carbon;
 use Closure;
 use Bookkeeper\Support\Install\InstallHelper;
 
-class DetermineLocale {
+class DetermineLocale
+{
 
     /**
      * Handle an incoming request.
@@ -20,8 +21,7 @@ class DetermineLocale {
     {
         $locale = env('APP_LOCALE');
 
-        if (array_key_exists($locale, InstallHelper::$locales))
-        {
+        if (array_key_exists($locale, InstallHelper::$locales)) {
             app()->setLocale($locale);
 
             setlocale(LC_TIME, config('app.full_locales.' . $locale, null));

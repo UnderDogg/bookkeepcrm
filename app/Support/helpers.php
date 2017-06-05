@@ -1,7 +1,6 @@
 <?php
 
-if ( ! function_exists('is_installed'))
-{
+if (!function_exists('is_installed')) {
     /**
      * Checks if Bookkeeper is installed
      *
@@ -9,12 +8,11 @@ if ( ! function_exists('is_installed'))
      */
     function is_installed()
     {
-        return ((env('APP_STATUS', 'INSTALLED') === 'INSTALLED') && ! empty(env('DB_DATABASE')));
+        return ((env('APP_STATUS', 'INSTALLED') === 'INSTALLED') && !empty(env('DB_DATABASE')));
     }
 }
 
-if ( ! function_exists('is_request_install'))
-{
+if (!function_exists('is_request_install')) {
     /**
      * Checks if the request is a install request
      *
@@ -26,8 +24,7 @@ if ( ! function_exists('is_request_install'))
     }
 }
 
-if ( ! function_exists('bookkeeper_version'))
-{
+if (!function_exists('bookkeeper_version')) {
     /**
      * Returns the current bookkeeper version
      *
@@ -39,8 +36,7 @@ if ( ! function_exists('bookkeeper_version'))
     }
 }
 
-if ( ! function_exists('uppercase'))
-{
+if (!function_exists('uppercase')) {
     /**
      * Converts string to uppercase depending on the language
      * This helper mainly resolves the issue for Turkish i => İ
@@ -54,8 +50,7 @@ if ( ! function_exists('uppercase'))
     {
         $locale = $locale ?: App::getLocale();
 
-        if ($locale === 'tr')
-        {
+        if ($locale === 'tr') {
             return mb_strtoupper(str_replace('i', 'İ', $string), 'UTF-8');
         }
 
@@ -63,8 +58,7 @@ if ( ! function_exists('uppercase'))
     }
 }
 
-if ( ! function_exists('get_full_locale_for'))
-{
+if (!function_exists('get_full_locale_for')) {
     /**
      * Returns the locale count of the app
      *
@@ -80,8 +74,7 @@ if ( ! function_exists('get_full_locale_for'))
     }
 }
 
-if ( ! function_exists('get_accounts_list'))
-{
+if (!function_exists('get_accounts_list')) {
     /**
      * Returns the account name to id list
      *
@@ -89,15 +82,14 @@ if ( ! function_exists('get_accounts_list'))
      */
     function get_accounts_list()
     {
-        return \Bookkeeper\Finance\Account::sortable()
+        return \Bookkeeper\Finance\Company::sortable()
             ->get()
             ->pluck('name', 'id')
             ->toArray();
     }
 }
 
-if ( ! function_exists('get_default_account'))
-{
+if (!function_exists('get_default_account')) {
     /**
      * Returns the default account
      *
@@ -109,13 +101,12 @@ if ( ! function_exists('get_default_account'))
     }
 }
 
-if ( ! function_exists('currency_string_for'))
-{
+if (!function_exists('currency_string_for')) {
     /**
      * Returns the amount with currency presentation
      *
      * @param int $amount
-     * @param int|Account $account
+     * @param int|Company $account
      * @return string
      */
     function currency_string_for($amount, $account)
@@ -125,8 +116,7 @@ if ( ! function_exists('currency_string_for'))
     }
 }
 
-if ( ! function_exists('currency_float_for'))
-{
+if (!function_exists('currency_float_for')) {
     /**
      * Returns the amount with float presentation
      *

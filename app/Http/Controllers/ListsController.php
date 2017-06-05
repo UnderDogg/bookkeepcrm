@@ -8,7 +8,8 @@ use Bookkeeper\CRM\PeopleList;
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesListForms;
 
-class ListsController extends BookkeeperController {
+class ListsController extends BookkeeperController
+{
 
     use BasicResource, UsesListForms;
 

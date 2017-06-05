@@ -13,11 +13,11 @@
 
     <script>
         var specificModal = new Modal($('.modal--specific'),
-            {
-                onConfirmEvent : function(dialog) {
-                    dialog.current.closest('form').submit();
-                }
-            },
-            $('.delete-form-specific > .option-delete'));
+                {
+                    onConfirmEvent: function (dialog) {
+                        dialog.current.closest('form').submit();
+                    }
+                },
+                $('.delete-form-specific > .option-delete'));
     </script>
 @endsection

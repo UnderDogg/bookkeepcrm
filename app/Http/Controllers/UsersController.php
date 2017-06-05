@@ -8,7 +8,8 @@ use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesUserForms;
 use Bookkeeper\Users\User;
 
-class UsersController extends BookkeeperController {
+class UsersController extends BookkeeperController
+{
 
     use BasicResource, UsesUserForms;
 

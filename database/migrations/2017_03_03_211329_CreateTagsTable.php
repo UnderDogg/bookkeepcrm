@@ -18,8 +18,7 @@ class CreateTagsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('tag_transaction', function (Blueprint $table)
-        {
+        Schema::create('tag_transaction', function (Blueprint $table) {
             $table->integer('tag_id')->unsigned();
             $table->integer('transaction_id')->unsigned();
 
