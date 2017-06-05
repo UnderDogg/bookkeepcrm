@@ -20,7 +20,7 @@
     "barryvdh/laravel-ide-helper": "^2.3",
     "doctrine/dbal": "^2.5",
     "filp/whoops": "^2.1",
-    "laravel/framework": "5.2.*",
+    "laravel/framework": "5.3.*",
     "kris/laravel-form-builder": "^1.8",
     "laracasts/flash": "^2.0",
     "igaster/laravel-theme": "^1.0",

@@ -15,20 +15,20 @@ Bookkeeper is a flexible finance tracker and CRM powered by [Laravel](https://la
 
  Laravel                            | Package
 :-----------------------------------|:----------
- barryvdh                           | ^2.3",
- doctrine/dbal                      | ^2.5",
- filp/whoops                        | 2.1",
- laravel/framework                  | 5.2.*",
- kris/laravel-form-builder          | ^1.12",
- laracasts/flash                    | ^2.0",
- igaster/laravel-theme              | ^1.0",
- nwidart/laravel-modules            | ^1.22",
- guzzlehttp/guzzle                  | ^5.3",
- spatie/db-dumper                   | ^1.5",
- kenarkose/sortable                 | ^1.2",
- nicolaslopezj/searchable           | ^1.9",
- wikimedia/composer-merge-plugin    | ^1.3",
- yajra/laravel-datatables-oracle    | ^6.0"
+ barryvdh                           | ^2.3,
+ doctrine/dbal                      | ^2.5,
+ filp/whoops                        | 2.1,
+ laravel/framework                  | 5.3.*,
+ kris/laravel-form-builder          | ^1.12,
+ laracasts/flash                    | ^2.0,
+ igaster/laravel-theme              | ^1.0,
+ nwidart/laravel-modules            | ^1.22,
+ guzzlehttp/guzzle                  | ^5.3,
+ spatie/db-dumper                   | ^1.5,
+ kenarkose/sortable                 | ^1.2,
+ nicolaslopezj/searchable           | ^1.9,
+ wikimedia/composer-merge-plugin    | ^1.3,
+ yajra/laravel-datatables-oracle    | ^6.0
 
 
 ## Installation
