@@ -1,7 +1,7 @@
 @extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'content' : 'form'))
 
 @php
-$currentSection = 'crm';
+$currentSection = 'relations';
 $currentRoute = 'bookkeeper.lists.index';
 @endphp
 

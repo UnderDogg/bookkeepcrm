@@ -8,8 +8,8 @@ return [
     'or' => 'or',
 
     'finance' => 'Finance',
-    'crm' => 'CRM',
-    'overview_hint' => 'Here are some of the recent activity on your bankaccounts.',
+    'relations' => 'Relations',
+    'overview_hint' => 'Here are some of the recent activity on your relations.',
 
     'back' => 'Back',
     'page' => 'Page',

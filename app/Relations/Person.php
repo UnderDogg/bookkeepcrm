@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Bookkeeper\CRM;
+namespace Bookkeeper\Relations;
 
 
 use Illuminate\Database\Eloquent\Model as Eloquent;

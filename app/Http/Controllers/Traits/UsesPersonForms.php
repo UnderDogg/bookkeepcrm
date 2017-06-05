@@ -3,8 +3,8 @@
 namespace Bookkeeper\Http\Controllers\Traits;
 
 
-use Bookkeeper\CRM\PeopleList;
-use Bookkeeper\CRM\Person;
+use Bookkeeper\Relations\PeopleList;
+use Bookkeeper\Relations\Person;
 use Illuminate\Http\Request;
 
 trait UsesPersonForms

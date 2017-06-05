@@ -4,7 +4,7 @@
 namespace Bookkeeper\Http\Controllers;
 
 
-use Bookkeeper\CRM\PeopleList;
+use Bookkeeper\Relations\PeopleList;
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesListForms;
 

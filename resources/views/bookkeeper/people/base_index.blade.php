@@ -1,7 +1,7 @@
 @extends('layout.content')
 
 @php
-$currentSection = 'crm';
+$currentSection = 'relations';
 $currentRoute = 'bookkeeper.people.index';
 @endphp
 

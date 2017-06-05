@@ -1,4 +1,4 @@
-@extends('bankaccountsbase_edit')
+@extends('bankaccounts.base_edit')
 <?php $_withForm = false; $contentsListModifier = 'content-list-container--separated'; ?>
 
 @section('content')

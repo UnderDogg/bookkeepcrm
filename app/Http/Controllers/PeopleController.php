@@ -4,7 +4,7 @@
 namespace Bookkeeper\Http\Controllers;
 
 
-use Bookkeeper\CRM\Person;
+use Bookkeeper\Relations\Person;
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesPersonForms;
 use Illuminate\Http\Request;

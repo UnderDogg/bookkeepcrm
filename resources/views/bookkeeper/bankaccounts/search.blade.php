@@ -1,4 +1,4 @@
-@extends('bankaccountsbase_index')
+@extends('bankaccounts.base_index')
 
 @section('header_content')
     @include('partials.header', [

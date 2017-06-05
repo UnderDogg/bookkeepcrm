@@ -1,10 +1,10 @@
 <div class="navigation-container">
     <div class="container">
-        <nav class="navigation {{ ($currentSection === 'finance' || $currentSection === 'crm') ? '' : 'navigation--padded' }}">
+        <nav class="navigation {{ ($currentSection === 'finance' || $currentSection === 'relations') ? '' : 'navigation--padded' }}">
             <div class="navigation__sections">
                 @foreach([
                     'finance' => 'bookkeeper.overview',
-                    'crm' => 'bookkeeper.people.index'
+                    'relations' => 'bookkeeper.people.index'
                 ] as $section => $route)
                     @if($currentSection === $section)
                         <span class="navigation__section navigation__section--active">{{ uppercase(trans('general.' . $section)) }}</span>
@@ -73,13 +73,13 @@
             --}}
         </nav>
 
-        @if($currentSection === 'finance' || $currentSection === 'crm')
+        @if($currentSection === 'finance' || $currentSection === 'relations')
             @include('partials.tabs', [
                 'flaps' => ($currentSection === 'finance') ?
                     [
                         'bookkeeper.overview' => 'overview.index',
                         'bookkeeper.transactions.index' => 'transactions.title',
-                        'bookkeeper.companies.index' => 'companies.title',
+                        'bookkeeper.bankaccounts.index' => 'bankaccounts.title',
                         'bookkeeper.tags.index' => 'tags.title',
                     ] :
                     [

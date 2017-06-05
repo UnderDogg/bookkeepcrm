@@ -1,4 +1,4 @@
-@extends('bankaccountsbase_index')
+@extends('bankaccounts.base_index')
 
 @section('header_content')
     @include('partials.header', [
@@ -23,9 +23,9 @@
 
 @section('content_list')
     @if($companies->count())
-        @include('bankaccountslist')
+        @include('bankaccounts.list')
     @else
-        {!! no_results_row('bankaccountsno_accounts') !!}
+        {!! no_results_row('bankaccounts.no_accounts') !!}
     @endif
 @endsection
 

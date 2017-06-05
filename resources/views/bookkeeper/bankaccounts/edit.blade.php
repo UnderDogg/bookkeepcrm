@@ -1,4 +1,4 @@
-@extends('bankaccountsbase_edit')
+@extends('bankaccounts.base_edit')
 
 @section('form_buttons')
     {!! submit_button('icon-floppy') !!}

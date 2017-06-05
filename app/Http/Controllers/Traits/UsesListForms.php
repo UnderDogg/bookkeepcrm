@@ -3,7 +3,7 @@
 namespace Bookkeeper\Http\Controllers\Traits;
 
 
-use Bookkeeper\CRM\PeopleList;
+use Bookkeeper\Relations\PeopleList;
 use Illuminate\Http\Request;
 
 trait UsesListForms

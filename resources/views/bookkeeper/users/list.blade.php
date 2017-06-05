@@ -1,3 +1,14 @@
+@section('modules')
+    @parent
+
+    <div class="users-buttons">
+        <a href="#" id="userButton" class="user-buttons__button user-buttons__button--add"></a>
+    </div>
+
+    @include('users.modal')
+@endsection
+
+
 @foreach($users as $user)
     <tr class="content-list__row--body">
 
