@@ -29,3 +29,5 @@
 @section('content_footer')
     {!! back_to_all_link('people') !!}
 @endsection
+
+@include('people.create')

@@ -1,12 +1,12 @@
 <?php
 
-namespace Bookkeeper\Finance;
+namespace Bookkeeper\Bookkeeping;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
-class Company extends Eloquent
+class Tag extends Eloquent
 {
 
     use Sortable, SearchableTrait;
@@ -17,7 +17,7 @@ class Company extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'name', 'currency'
+        'name'
     ];
 
     /**
@@ -25,7 +25,7 @@ class Company extends Eloquent
      *
      * @var array
      */
-    protected $sortableColumns = ['name', 'currency', 'created_at'];
+    protected $sortableColumns = ['name', 'created_at'];
 
     /**
      * Default sortable key
@@ -48,34 +48,18 @@ class Company extends Eloquent
      */
     protected $searchable = [
         'columns' => [
-            'name' => 10,
-            'currency' => 10
+            'name' => 10
         ]
     ];
 
     /**
-     * Transaction relation
+     * Transactions relation
      *
      * @return BelongsToMany
      */
     public function transactions()
     {
-        return $this->hasMany(Transaction::class);
-    }
-
-    /**
-     * Returns the company balance
-     *
-     * @return float
-     */
-    public function getBalance()
-    {
-        $incomes = $this->transactions
-            ->where('type', 'income');
-        $expenses = $this->transactions
-            ->where('type', 'expense');
-
-        return $incomes->sum('amount') - $expenses->sum('amount');
+        return $this->belongsToMany(Transaction::class);
     }
 
 }

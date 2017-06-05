@@ -1,6 +1,6 @@
 <?php
 
-namespace Bookkeeper\Finance;
+namespace Bookkeeper\Bookkeeping;
 
 
 use Illuminate\Database\Eloquent\Builder;
@@ -19,7 +19,7 @@ class Transaction extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'name', 'type', 'amount', 'company_id',
+        'company_id', 'name', 'type', 'amount', 'bankaccount_id',
         'received', 'notes', 'created_at', 'tags'
     ];
 

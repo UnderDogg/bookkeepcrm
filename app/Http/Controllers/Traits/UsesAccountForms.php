@@ -4,7 +4,7 @@ namespace Bookkeeper\Http\Controllers\Traits;
 
 
 use Illuminate\Http\Request;
-use Bookkeeper\Finance\Company;
+use Bookkeeper\Bookkeeping\Company;
 
 trait UsesAccountForms
 {

@@ -4,7 +4,7 @@
 namespace Bookkeeper\Support\Currencies;
 
 
-use Bookkeeper\Finance\Company;
+use Bookkeeper\Bookkeeping\Company;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 

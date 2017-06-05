@@ -1,6 +1,6 @@
 <?php
 
-namespace Bookkeeper\Finance;
+namespace Bookkeeper\Bookkeeping;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Sortable\Sortable;
@@ -11,7 +11,7 @@ class BankAccount extends Eloquent
 
     use Sortable, SearchableTrait;
 
-protected $table = 'bankaccounts';
+    protected $table = 'bankaccounts';
 
 
     /**
@@ -63,7 +63,7 @@ protected $table = 'bankaccounts';
      */
     public function transactions()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class, 'bankaccount_id');
     }
 
     /**

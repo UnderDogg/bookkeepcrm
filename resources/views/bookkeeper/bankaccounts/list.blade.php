@@ -1,4 +1,4 @@
-@foreach($companies as $bankaccount)
+@foreach($bankaccounts as $bankaccount)
     <tr class="content-list__row--body">
 
         {!! content_list_thumbnail($bankaccount->getKey()) !!}
@@ -16,7 +16,7 @@
             {{ $bankaccount->created_at->formatLocalized('%b %e, %Y') }}
         </td>
 
-        {!! content_options('Bankaccounts', $bankaccount->getKey()) !!}
+        {!! content_options('bankaccounts', $bankaccount->getKey()) !!}
 
     </tr>
 @endforeach

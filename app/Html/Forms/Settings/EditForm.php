@@ -4,7 +4,7 @@
 namespace Bookkeeper\Html\Forms\Settings;
 
 
-use Bookkeeper\Finance\Company;
+use Bookkeeper\Bookkeeping\Company;
 use Bookkeeper\Support\Currencies\CurrencyHelper;
 use Bookkeeper\Support\Install\InstallHelper;
 use Kris\LaravelFormBuilder\Form;

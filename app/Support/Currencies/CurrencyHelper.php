@@ -3,8 +3,8 @@
 
 namespace Bookkeeper\Support\Currencies;
 
-use Bookkeeper\Finance\BankAccount;
-use Bookkeeper\Finance\Company;
+use Bookkeeper\Bookkeeping\BankAccount;
+use Bookkeeper\Bookkeeping\Company;
 use Cache;
 
 class CurrencyHelper
@@ -197,7 +197,7 @@ class CurrencyHelper
             $this->bankaccounts[$id] = $bankaccount;
         }
 
-        return $this->companies[$id];
+        return $this->bankaccounts[$id];
     }
 
 

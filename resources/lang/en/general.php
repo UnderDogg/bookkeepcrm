@@ -7,7 +7,7 @@ return [
     'no' => 'No',
     'or' => 'or',
 
-    'finance' => 'Finance',
+    'bookkeeping' => 'Bookkeeping',
     'relations' => 'Relations',
     'overview_hint' => 'Here are some of the recent activity on your relations.',
 

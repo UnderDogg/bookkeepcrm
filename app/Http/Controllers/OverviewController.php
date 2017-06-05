@@ -4,7 +4,7 @@
 namespace Bookkeeper\Http\Controllers;
 
 
-use Bookkeeper\Finance\Transaction;
+use Bookkeeper\Bookkeeping\Transaction;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 

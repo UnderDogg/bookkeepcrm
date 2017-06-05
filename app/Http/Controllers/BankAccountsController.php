@@ -5,7 +5,7 @@ namespace Bookkeeper\Http\Controllers;
 
 
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
-use Bookkeeper\Finance\BankAccount;
+use Bookkeeper\Bookkeeping\BankAccount;
 use Bookkeeper\Http\Controllers\Traits\UsesAccountForms;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;

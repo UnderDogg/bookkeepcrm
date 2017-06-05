@@ -34,3 +34,5 @@
 @section('content_footer')
     {!! back_to_all_link('transactions') !!}
 @endsection
+
+@include('transactions.create')

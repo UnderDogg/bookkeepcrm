@@ -4,7 +4,7 @@
 namespace Bookkeeper\Http\Controllers;
 
 
-use Bookkeeper\Finance\Transaction;
+use Bookkeeper\Bookkeeping\Transaction;
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Http\Controllers\Traits\UsesTransactionForms;
 use Illuminate\Http\Request;

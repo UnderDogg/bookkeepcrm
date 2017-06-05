@@ -33,3 +33,5 @@
 @section('content_footer')
     @include('partials.pagination', ['paginator' => $people])
 @endsection
+
+@include('people.create')

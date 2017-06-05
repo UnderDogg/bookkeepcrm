@@ -32,3 +32,5 @@
 @section('content_footer')
     {!! back_to_all_link('companies') !!}
 @endsection
+
+@include('companies.create')

@@ -1,7 +1,7 @@
 @extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'content' : 'form'))
 
 @php
-$currentSection = 'finance';
+$currentSection = 'bookkeeping';
 $currentRoute = 'bookkeeper.tags.index';
 @endphp
 

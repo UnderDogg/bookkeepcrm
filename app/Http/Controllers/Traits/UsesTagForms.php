@@ -4,7 +4,7 @@ namespace Bookkeeper\Http\Controllers\Traits;
 
 
 use Illuminate\Http\Request;
-use Bookkeeper\Finance\Tag;
+use Bookkeeper\Bookkeeping\Tag;
 
 trait UsesTagForms
 {

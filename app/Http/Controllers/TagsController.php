@@ -5,7 +5,7 @@ namespace Bookkeeper\Http\Controllers;
 
 
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
-use Bookkeeper\Finance\Tag;
+use Bookkeeper\Bookkeeping\Tag;
 use Bookkeeper\Http\Controllers\Traits\UsesTagForms;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;

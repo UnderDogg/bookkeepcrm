@@ -32,3 +32,5 @@
 @section('content_footer')
     @include('partials.pagination', ['paginator' => $companies])
 @endsection
+
+@include('companies.create')

@@ -2,7 +2,7 @@
 <?php $_withForm = false; ?>
 
 @php
-$currentSection = 'finance';
+$currentSection = 'bookkeeping';
 $currentRoute = 'bookkeeper.companies.index';
 @endphp
 

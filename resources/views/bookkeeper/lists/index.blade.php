@@ -26,3 +26,5 @@
 @section('content_footer')
     @include('partials.pagination', ['paginator' => $lists])
 @endsection
+
+@include('lists.create')

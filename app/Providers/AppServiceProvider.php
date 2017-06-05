@@ -2,7 +2,7 @@
 
 namespace Bookkeeper\Providers;
 
-use Bookkeeper\Finance\Company;
+use Bookkeeper\Bookkeeping\Company;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

@@ -3,7 +3,7 @@
 namespace Bookkeeper\Http\Controllers\Traits;
 
 
-use Bookkeeper\Finance\Transaction;
+use Bookkeeper\Bookkeeping\Transaction;
 use Illuminate\Http\Request;
 
 trait UsesTransactionForms

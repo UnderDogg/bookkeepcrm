@@ -82,7 +82,7 @@ if (!function_exists('get_companies_list')) {
      */
     function get_companies_list()
     {
-        return \Bookkeeper\Finance\Company::sortable()
+        return \Bookkeeper\Bookkeeping\Company::sortable()
             ->get()
             ->pluck('name', 'id')
             ->toArray();
@@ -97,7 +97,7 @@ if (!function_exists('get_bankaccounts_list')) {
      */
     function get_bankaccounts_list()
     {
-        return \Bookkeeper\Finance\BankAccount::sortable()
+        return \Bookkeeper\Bookkeeping\BankAccount::sortable()
             ->get()
             ->pluck('name', 'id')
             ->toArray();

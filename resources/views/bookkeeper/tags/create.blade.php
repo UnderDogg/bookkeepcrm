@@ -1,7 +1,7 @@
 @extends('layout.form')
 
 @php
-$currentSection = 'finance';
+$currentSection = 'bookkeeping';
 $currentRoute = 'bookkeeper.tags.index';
 @endphp
 

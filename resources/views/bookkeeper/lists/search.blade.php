@@ -26,3 +26,5 @@
 @section('content_footer')
     {!! back_to_all_link('lists') !!}
 @endsection
+
+@include('lists.create')

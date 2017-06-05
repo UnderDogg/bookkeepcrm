@@ -25,3 +25,5 @@
 @section('content_footer')
     @include('partials.pagination', ['paginator' => $users])
 @endsection
+
+@include('users.create')

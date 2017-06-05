@@ -22,7 +22,7 @@
 @endsection
 
 @section('content_list')
-    @if($companies->count())
+    @if($bankaccounts->count())
         @include('bankaccounts.list')
     @else
         {!! no_results_row('bankaccounts.no_accounts') !!}
@@ -30,5 +30,7 @@
 @endsection
 
 @section('content_footer')
-    @include('partials.pagination', ['paginator' => $companies])
+    @include('partials.pagination', ['paginator' => $bankaccounts])
 @endsection
+
+@include('bankaccounts.create')

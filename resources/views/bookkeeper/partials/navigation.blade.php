@@ -1,9 +1,9 @@
 <div class="navigation-container">
     <div class="container">
-        <nav class="navigation {{ ($currentSection === 'finance' || $currentSection === 'relations') ? '' : 'navigation--padded' }}">
+        <nav class="navigation {{ ($currentSection === 'bookkeeping' || $currentSection === 'relations') ? '' : 'navigation--padded' }}">
             <div class="navigation__sections">
                 @foreach([
-                    'finance' => 'bookkeeper.overview',
+                    'bookkeeping' => 'bookkeeper.overview',
                     'relations' => 'bookkeeper.people.index'
                 ] as $section => $route)
                     @if($currentSection === $section)
@@ -73,9 +73,9 @@
             --}}
         </nav>
 
-        @if($currentSection === 'finance' || $currentSection === 'relations')
+        @if($currentSection === 'bookkeeping' || $currentSection === 'relations')
             @include('partials.tabs', [
-                'flaps' => ($currentSection === 'finance') ?
+                'flaps' => ($currentSection === 'bookkeeping') ?
                     [
                         'bookkeeper.overview' => 'overview.index',
                         'bookkeeper.transactions.index' => 'transactions.title',
