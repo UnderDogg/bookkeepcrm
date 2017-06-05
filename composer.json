@@ -46,13 +46,12 @@
       "database"
     ],
     "psr-4": {
-      "Bookkeeper\\": "app/"
+      "Bookkeeper\\": "app/",
+      "Modules\\": "Modules/"
     }
   },
   "autoload-dev": {
-    "classmap": [
-      "tests/TestCase.php"
-    ]
+    "classmap": []
   },
   "scripts": {
     "post-root-package-install": [
@@ -67,6 +66,8 @@
     ],
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan ide-helper:generate",
+      "php artisan ide-helper:meta",
       "php artisan optimize"
     ]
   }

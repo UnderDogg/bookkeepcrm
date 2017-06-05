@@ -172,11 +172,14 @@ return [
         /*
          * Other Vendor Service Providers...
          */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Kenarkose\Sortable\SortableServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
     ],
 
@@ -227,6 +230,9 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
         'Theme' => igaster\laravelTheme\Facades\Theme::class,
+        'Module' => Nwidart\Modules\Facades\Module::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+
     ],
 
 ];
