@@ -1,4 +1,4 @@
-@extends('accounts.base_index')
+@extends('companies.base_index')
 
 @section('header_content')
     @include('partials.header', [
@@ -11,7 +11,7 @@
         {!! sortable_link('name', uppercase(trans('validation.attributes.name'))) !!}
     </th>
     <th class="content-list__cell content-list__cell--head">
-        {{ uppercase(trans('accounts.balance')) }}
+        {{ uppercase(trans('companies.balance')) }}
     </th>
     <th class="content-list__cell content-list__cell--head content-list__cell--secondary">
         {!! sortable_link('currency', uppercase(trans('validation.attributes.currency'))) !!}
@@ -22,13 +22,13 @@
 @endsection
 
 @section('content_list')
-    @if($accounts->count())
-        @include('accounts.list')
+    @if($companies->count())
+        @include('companies.list')
     @else
-        {!! no_results_row('accounts.no_accounts') !!}
+        {!! no_results_row('companies.no_accounts') !!}
     @endif
 @endsection
 
 @section('content_footer')
-    @include('partials.pagination', ['paginator' => $accounts])
+    @include('partials.pagination', ['paginator' => $companies])
 @endsection

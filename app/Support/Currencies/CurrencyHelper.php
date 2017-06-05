@@ -3,7 +3,7 @@
 
 namespace Bookkeeper\Support\Currencies;
 
-
+use Bookkeeper\Finance\BankAccount;
 use Bookkeeper\Finance\Company;
 use Cache;
 
@@ -28,7 +28,11 @@ class CurrencyHelper
     public static $singleDecimalCurrencies = ['CNY'];
 
     /** @var Company */
-    protected $accounts = [];
+    protected $companies = [];
+
+    /** @var BankAccount */
+    protected $bankaccounts = [];
+
 
     /**
      * Returns a list of currencies
@@ -72,19 +76,29 @@ class CurrencyHelper
     }
 
     /**
-     * Returns the exchange rate for account
+     * Returns the exchange rate for company
      *
-     * @param int $accountId
+     * @param int $companyId
      * @return float
      */
-    public function getRateFor($accountId)
+    public function getRateFor($companyId, $bankaccountId)
     {
-        $account = $this->getAccount($accountId);
+        if (is_null($companyId)) {
+            $companyId = get_default_company();
+        }
+
+        //dd($companyId);
+        if (is_null($bankaccountId) || $bankaccountId == "") {
+            $bankaccountId = get_default_bankaccount();
+        }
+
+        $company = $this->getCompany($companyId);
+        $bankaccount = $this->getBankaccount($bankaccountId);
 
         $rates = $this->getAllRates();
 
         // If the currency does not exist, it should be the base
-        return isset($rates[$account->currency]) ? $rates[$account->currency] : 1;
+        return isset($rates[$bankaccount->currency]) ? $rates[$bankaccount->currency] : 1;
     }
 
     /**
@@ -95,9 +109,12 @@ class CurrencyHelper
     protected function getAllRates()
     {
         if (!Cache::has('bookkeeper.currency.rates')) {
-            $defaultAccount = $this->getAccount(get_default_account());
+            $defaultCompany = $this->getCompany(get_default_company());
 
-            $json = file_get_contents('http://api.fixer.io/latest?base=' . $defaultAccount->currency);
+            //$defaultaccount = get_default_bankaccount();
+            $defaultBankAccount = $this->getBankAccount(get_default_bankaccount());
+
+            $json = file_get_contents('http://api.fixer.io/latest?base=' . $defaultBankAccount->currency);
 
             Cache::put('bookkeeper.currency.rates', json_decode($json, true)['rates'], 1440);
         }
@@ -109,16 +126,21 @@ class CurrencyHelper
      * Converts amount to currency text
      *
      * @param int $amount
-     * @param int|Company $account
+     * @param int|Company $company
      * @return string
      */
-    public function currencyStringFor($amount, $account)
+    public function currencyStringFor($amount, $bankaccount)
     {
-        if (!$account instanceof Company) {
-            $account = $this->getAccount($account);
+        /*if (!$company instanceof Company) {
+            $company = $this->getBankAccount($company);
+        }*/
+
+        if (!$bankaccount instanceof BankAccount) {
+            $bankaccount = $this->getBankAccount($bankaccount);
         }
 
-        $currency = $account->currency;
+
+        $currency = $bankaccount->currency;
         $decimal = static::getDecimalDigitsFor($currency);
 
         if ($amount == 0) {
@@ -136,14 +158,14 @@ class CurrencyHelper
      * Converts amount to currency float
      *
      * @param int $amount
-     * @param int $accountId
+     * @param int $companyId
      * @return float
      */
-    public function currencyFloatFor($amount, $accountId)
+    public function currencyFloatFor($amount, $bankaccountId)
     {
-        $account = $this->getAccount($accountId);
+        $bankaccount = $this->getBankAccount($bankaccountId);
 
-        $decimal = static::getDecimalDigitsFor($account->currency);
+        $decimal = static::getDecimalDigitsFor($bankaccount->currency);
 
         if ($amount == 0) {
             return $this->zeroCurrencyFloat($decimal);
@@ -157,19 +179,42 @@ class CurrencyHelper
     }
 
     /**
-     * Gets and caches an account
+     * Gets and caches an company
      *
      * @param int $id
      * @return Company
      */
-    protected function getAccount($id)
+    protected function getBankAccount($id)
     {
-        if (!array_key_exists($id, $this->accounts)) {
-            $account = Company::findOrFail($id);
-            $this->accounts[$id] = $account;
+
+        if (is_null($id) || $id == "") {
+            $id = 1;
         }
 
-        return $this->accounts[$id];
+
+        if (!array_key_exists($id, $this->bankaccounts)) {
+            $bankaccount = BankAccount::findOrFail($id);
+            $this->bankaccounts[$id] = $bankaccount;
+        }
+
+        return $this->companies[$id];
+    }
+
+
+    /**
+     * Gets and caches an company
+     *
+     * @param int $id
+     * @return Company
+     */
+    protected function getCompany($id)
+    {
+        if (!array_key_exists($id, $this->companies)) {
+            $company = Company::findOrFail($id);
+            $this->companies[$id] = $company;
+        }
+
+        return $this->companies[$id];
     }
 
     /**

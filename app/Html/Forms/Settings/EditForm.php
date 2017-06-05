@@ -26,9 +26,15 @@ class EditForm extends Form
             'label' => trans('currencies.default_currency')
         ]);
 
-        $this->add('DEFAULT_ACCOUNT', 'select', [
-            'choices' => get_accounts_list(),
-            'label' => trans('currencies.default_account')
+        $this->add('DEFAULT_BANKACCOUNT', 'select', [
+            'choices' => get_bankaccounts_list(),
+            'label' => trans('currencies.default_bankaccount')
+        ]);
+
+
+        $this->add('DEFAULT_COMPANY', 'select', [
+            'choices' => get_companies_list(),
+            'label' => trans('currencies.default_company')
         ]);
     }
 

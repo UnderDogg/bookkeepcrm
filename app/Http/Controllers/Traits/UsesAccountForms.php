@@ -14,9 +14,9 @@ trait UsesAccountForms
      */
     protected function getCreateForm()
     {
-        return $this->form('Bookkeeper\Html\Forms\Accounts\CreateEditForm', [
+        return $this->form('Bookkeeper\Html\Forms\Companies\CreateEditForm', [
             'method' => 'POST',
-            'url' => route('bookkeeper.accounts.store')
+            'url' => route('bookkeeper.companies.store')
         ]);
     }
 
@@ -25,32 +25,32 @@ trait UsesAccountForms
      */
     protected function validateCreateForm(Request $request)
     {
-        $this->validateForm('Bookkeeper\Html\Forms\Accounts\CreateEditForm', $request);
+        $this->validateForm('Bookkeeper\Html\Forms\Companies\CreateEditForm', $request);
     }
 
     /**
      * @param int $id
-     * @param Company $account
+     * @param Company $bankaccount
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditForm($id, Company $account)
+    protected function getEditForm($id, Company $bankaccount)
     {
-        return $this->form('Bookkeeper\Html\Forms\Accounts\CreateEditForm', [
+        return $this->form('Bookkeeper\Html\Forms\Companies\CreateEditForm', [
             'method' => 'PUT',
-            'url' => route('bookkeeper.accounts.update', $id),
-            'model' => $account
+            'url' => route('bookkeeper.companies.update', $id),
+            'model' => $bankaccount
         ]);
     }
 
     /**
      * @param Request $request
-     * @param Company $account
+     * @param Company $bankaccount
      */
-    protected function validateEditForm(Request $request, Company $account)
+    protected function validateEditForm(Request $request, Company $bankaccount)
     {
-        $this->validateForm('Bookkeeper\Html\Forms\Accounts\CreateEditForm', $request, [
+        $this->validateForm('Bookkeeper\Html\Forms\Companies\CreateEditForm', $request, [
             'name' => ['required', 'max:255',
-                'unique:accounts,name,' . $account->getKey()],
+                'unique:companies,name,' . $bankaccount->getKey()],
         ]);
     }
 

@@ -5,12 +5,12 @@ namespace Bookkeeper\Http\Controllers;
 
 
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
-use Bookkeeper\Finance\Company;
+use Bookkeeper\Finance\BankAccount;
 use Bookkeeper\Http\Controllers\Traits\UsesAccountForms;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 
-class CompaniesController extends BookkeeperController
+class BankAccountsController extends BookkeeperController
 {
 
     use BasicResource, UsesAccountForms;
@@ -20,9 +20,9 @@ class CompaniesController extends BookkeeperController
      *
      * @var string
      */
-    protected $modelPath = Company::class;
-    protected $resourceMultiple = 'companies';
-    protected $resourceSingular = 'company';
+    protected $modelPath = BankAccount::class;
+    protected $resourceMultiple = 'bankaccounts';
+    protected $resourceSingular = 'bankaccount';
 
     /**
      * Shows transactions for the company.
@@ -32,12 +32,12 @@ class CompaniesController extends BookkeeperController
      */
     public function transactions($id)
     {
-        $bankaccount = Company::findOrFail($id);
+        $bankaccount = BankAccount::findOrFail($id);
 
         $transactions = $bankaccount->transactions()
             ->sortable()->paginate();
 
-        return $this->compileView('companies.transactions', compact('company', 'transactions'), trans('transactions.title'));
+        return $this->compileView('companies.transactions', compact('bankaccount', 'transactions'), trans('transactions.title'));
     }
 
     /**
@@ -48,7 +48,7 @@ class CompaniesController extends BookkeeperController
      */
     public function overview($id)
     {
-        $bankaccount = Company::findOrFail($id);
+        $bankaccount = BankAccount::findOrFail($id);
 
         $start = Carbon::now()->endOfMonth()->subYear()->addSecond();
         $end = Carbon::now()->endOfMonth();
@@ -61,7 +61,7 @@ class CompaniesController extends BookkeeperController
         $statistics = (new Cruncher())
             ->compileAccountStatisticsFor($transactions, $bankaccount, $start, $end);
 
-        return $this->compileView('companies.overview', compact('company', 'statistics'), trans('overview.index'));
+        return $this->compileView('bankaccounts.overview', compact('bankaccount', 'statistics'), trans('overview.index'));
     }
 
 }

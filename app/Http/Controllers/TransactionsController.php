@@ -49,7 +49,7 @@ class TransactionsController extends BookkeeperController
             'name' => 'required|max:255',
             'type' => 'required|in:income,expense',
             'amount' => 'required|integer',
-            'account_id' => 'required|exists:accounts,id',
+            'company_id' => 'required|exists:companies,id',
             'created_at' => 'required'
         ]);
 

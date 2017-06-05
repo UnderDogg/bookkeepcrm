@@ -79,7 +79,7 @@
                     [
                         'bookkeeper.overview' => 'overview.index',
                         'bookkeeper.transactions.index' => 'transactions.title',
-                        'bookkeeper.accounts.index' => 'accounts.title',
+                        'bookkeeper.companies.index' => 'companies.title',
                         'bookkeeper.tags.index' => 'tags.title',
                     ] :
                     [

@@ -2,13 +2,13 @@
 
 @php
 $currentSection = 'finance';
-$currentRoute = 'bookkeeper.accounts.index';
+$currentRoute = 'bookkeeper.companies.index';
 @endphp
 
 @section('header_content')
     @include('partials.header', [
         'headerTitle' => $pageTitle,
-        'headerHint' => link_to_route('bookkeeper.accounts.index', uppercase(trans('accounts.title')))
+        'headerHint' => link_to_route('bookkeeper.companies.index', uppercase(trans('companies.title')))
     ])
 @endsection
 

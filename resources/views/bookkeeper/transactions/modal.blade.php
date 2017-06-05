@@ -29,10 +29,16 @@
                         </div>
                     </div>
 
-                    {!! field_wrapper_open([], 't_account_id', $errors, 'form-group--inverted') !!}
-                    {!! field_label(true, ['label' => trans('accounts.self')], 't_account_id', $errors) !!}
+                    {!! field_wrapper_open([], 't_company_id', $errors, 'form-group--inverted') !!}
+                    {!! field_label(true, ['label' => trans('companies.self')], 't_company_id', $errors) !!}
                     <div class="form-group__select">
-                        {!! Form::select('t_account_id', get_accounts_list(), get_default_account()) !!}
+                        {!! Form::select('t_company_id', get_companies_list(), get_default_company()) !!}
+                        <i class="icon-arrow-down"></i>
+                    </div>
+                    {!! field_wrapper_open([], 't_bankaccount_id', $errors, 'form-group--inverted') !!}
+                    {!! field_label(true, ['label' => trans('companies.self')], 't_bankaccount_id', $errors) !!}
+                    <div class="form-group__select">
+                        {!! Form::select('t_bankaccount_id', get_bankaccounts_list(), get_default_bankaccount()) !!}
                         <i class="icon-arrow-down"></i>
                     </div>
                 </div>
@@ -84,8 +90,7 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
 
 <div class="modal-buttons">
     <button class="button button--close">
@@ -95,6 +100,4 @@
                     uppercase(trans('general.confirm')) }}
     </button>
 </div>
-</div>
-</div>
-</div>
+

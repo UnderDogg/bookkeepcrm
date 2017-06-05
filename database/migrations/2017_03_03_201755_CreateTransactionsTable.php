@@ -22,7 +22,7 @@ class CreateTransactionsTable extends Migration
 
             $table->string('name');
             $table->bigInteger('amount');
-            $table->unsignedInteger('account_id');
+            $table->unsignedInteger('company_id');
             $table->boolean('received');
 
             $table->text('notes');
@@ -30,11 +30,11 @@ class CreateTransactionsTable extends Migration
             $table->timestamps();
 
             $table->index('type');
-            $table->index('account_id');
+            $table->index('company_id');
 
-            $table->foreign('account_id')
+            $table->foreign('company_id')
                 ->references('id')
-                ->on('accounts')
+                ->on('companies')
                 ->onDelete('cascade');
         });
     }

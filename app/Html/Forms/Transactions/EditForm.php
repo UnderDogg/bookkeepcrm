@@ -25,11 +25,21 @@ class EditForm extends Form
         $this->add('amount', 'amount', [
             'rules' => 'required|integer',
         ]);
-        $this->add('account_id', 'select', [
+
+
+        $this->add('company_id', 'select', [
             'rules' => 'required',
-            'label' => trans('accounts.self'),
-            'choices' => get_accounts_list()
+            'label' => trans('companies.self'),
+            'choices' => get_companies_list()
         ]);
+
+        $this->add('bankaccount_id', 'select', [
+            'rules' => 'required',
+            'label' => trans('bankaccounts.self'),
+            'choices' => get_bankaccounts_list()
+        ]);
+
+
         $this->add('created_at', 'datetime', [
             'rules' => 'required'
         ]);

@@ -74,13 +74,13 @@ if (!function_exists('get_full_locale_for')) {
     }
 }
 
-if (!function_exists('get_accounts_list')) {
+if (!function_exists('get_companies_list')) {
     /**
-     * Returns the account name to id list
+     * Returns the company name to id list
      *
      * @return bool
      */
-    function get_accounts_list()
+    function get_companies_list()
     {
         return \Bookkeeper\Finance\Company::sortable()
             ->get()
@@ -89,30 +89,62 @@ if (!function_exists('get_accounts_list')) {
     }
 }
 
-if (!function_exists('get_default_account')) {
+if (!function_exists('get_bankaccounts_list')) {
     /**
-     * Returns the default account
+     * Returns the company name to id list
      *
      * @return bool
      */
-    function get_default_account()
+    function get_bankaccounts_list()
     {
-        return env('DEFAULT_ACCOUNT');
+        return \Bookkeeper\Finance\BankAccount::sortable()
+            ->get()
+            ->pluck('name', 'id')
+            ->toArray();
     }
 }
+
+
+
+if (!function_exists('get_default_company')) {
+    /**
+     * Returns the default company
+     *
+     * @return bool
+     */
+    function get_default_company()
+    {
+        return env('DEFAULT_COMPANY');
+    }
+}
+
+if (!function_exists('get_default_bankaccount')) {
+    /**
+     * Returns the default bankaccount
+     *
+     * @return bool
+     */
+    function get_default_bankaccount()
+    {
+        $defaultaccount = env('DEFAULT_BANKACCOUNT');
+
+        return env('DEFAULT_BANKACCOUNT');
+    }
+}
+
 
 if (!function_exists('currency_string_for')) {
     /**
      * Returns the amount with currency presentation
      *
      * @param int $amount
-     * @param int|Company $account
+     * @param int|Company $bankaccount
      * @return string
      */
-    function currency_string_for($amount, $account)
+    function currency_string_for($amount, $bankaccount)
     {
         return app('bookkeeper.support.currency')
-            ->currencyStringFor($amount, $account);
+            ->currencyStringFor($amount, $bankaccount);
     }
 }
 

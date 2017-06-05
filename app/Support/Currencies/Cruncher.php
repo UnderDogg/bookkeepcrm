@@ -23,37 +23,41 @@ class Cruncher
     {
         list($statistics, $labels) = $this->getNewBaseForInterval($start, $end);
 
-        $accounts = $transactions->groupBy('account_id');
+        $companies = $transactions->groupBy('company_id');
+        $bankaccounts = $transactions->groupBy('bankaccount_id');
 
-        foreach ($accounts as $accountId => $transactions) {
-            $rate = app('bookkeeper.support.currency')->getRateFor($accountId);
+        $companyId = get_default_company();
+
+
+        foreach ($bankaccounts as $bankaccountId => $transactions) {
+            $rate = app('bookkeeper.support.currency')->getRateFor($companyId, $bankaccountId);
 
             $statistics = $this->mergeTransactionsWith($transactions, $statistics, $rate);
         }
 
-        $summary = $this->generateSummary($statistics, get_default_account());
-        $statistics = $this->normalizeStatistics($statistics, get_default_account());
+        $summary = $this->generateSummary($statistics, get_default_bankaccount());
+        $statistics = $this->normalizeStatistics($statistics, get_default_bankaccount());
 
         return array_merge($summary, compact('statistics', 'labels'));
     }
 
     /**
-     * Crunches transactions for an account
+     * Crunches transactions for an company
      *
      * @param Collection $transactions
-     * @param Company $account
+     * @param Company $bankaccount
      * @param Carbon $start
      * @param Carbon $end
      * @return array
      */
-    public function compileAccountStatisticsFor(Collection $transactions, Company $account, Carbon $start, Carbon $end)
+    public function compileAccountStatisticsFor(Collection $transactions, Company $bankaccount, Carbon $start, Carbon $end)
     {
         list($statistics, $labels) = $this->getNewBaseForInterval($start, $end);
 
         $statistics = $this->mergeTransactionsWith($transactions, $statistics, 1);
 
-        $summary = $this->generateSummary($statistics, $account->getKey());
-        $statistics = $this->normalizeStatistics($statistics, $account->getKey());
+        $summary = $this->generateSummary($statistics, $bankaccount->getKey());
+        $statistics = $this->normalizeStatistics($statistics, $bankaccount->getKey());
 
         return array_merge($summary, compact('statistics', 'labels'));
     }

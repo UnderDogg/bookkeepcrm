@@ -19,7 +19,7 @@ class Transaction extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'name', 'type', 'amount', 'account_id',
+        'name', 'type', 'amount', 'company_id',
         'received', 'notes', 'created_at', 'tags'
     ];
 
@@ -117,7 +117,7 @@ class Transaction extends Eloquent
      */
     public function presentAmount()
     {
-        return currency_string_for($this->amount, $this->account_id);
+        return currency_string_for($this->amount, $this->company_id);
     }
 
     /**

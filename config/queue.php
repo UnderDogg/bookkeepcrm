@@ -52,7 +52,7 @@ return [
             'driver' => 'sqs',
             'key' => 'your-public-key',
             'secret' => 'your-secret-key',
-            'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
+            'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-company-id',
             'queue' => 'your-queue-name',
             'region' => 'us-east-1',
         ],

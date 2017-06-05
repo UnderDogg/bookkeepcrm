@@ -33,7 +33,8 @@ class SettingsController extends BookkeeperController
             'model' => [
                 'APP_LOCALE' => env('APP_LOCALE'),
                 'DEFAULT_CURRENCY' => env('DEFAULT_CURRENCY'),
-                'DEFAULT_ACCOUNT' => get_default_account()
+                'DEFAULT_COMPANY' => get_default_company(),
+                'DEFAULT_BANKACCOUNT' => get_default_bankaccount()
             ]
         ]);
     }
@@ -51,9 +52,10 @@ class SettingsController extends BookkeeperController
 
         $helper->setEnvVariable('APP_LOCALE', $request->input('APP_LOCALE'));
         $helper->setEnvVariable('DEFAULT_CURRENCY', $request->input('DEFAULT_CURRENCY'));
-        $helper->setEnvVariable('DEFAULT_ACCOUNT', $request->input('DEFAULT_ACCOUNT'));
+        $helper->setEnvVariable('DEFAULT_COMPANY', $request->input('DEFAULT_COMPANY'));
+        $helper->setEnvVariable('DEFAULT_BANKACCOUNT', $request->input('DEFAULT_BANKACCOUNT'));
 
-        // Forget the currency rates cache since default account may have been changed
+        // Forget the currency rates cache since default company may have been changed
         \Cache::forget('bookkeeper.currency.rates');
 
         $this->notify('settings.edited');

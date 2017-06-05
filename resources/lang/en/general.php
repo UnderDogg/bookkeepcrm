@@ -9,7 +9,7 @@ return [
 
     'finance' => 'Finance',
     'crm' => 'CRM',
-    'overview_hint' => 'Here are some of the recent activity on your accounts.',
+    'overview_hint' => 'Here are some of the recent activity on your bankaccounts.',
 
     'back' => 'Back',
     'page' => 'Page',

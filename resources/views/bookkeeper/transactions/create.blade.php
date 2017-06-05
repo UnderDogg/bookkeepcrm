@@ -15,7 +15,7 @@
     <script>
         window.transactionModal = true;
         window.locale = '{{ env('APP_LOCALE') }}';
-        window.currentAccount = '{{ $currentAccountId or get_default_account() }}';
+        window.currentAccount = '{{ $currentAccountId or get_default_bankaccount() }}';
         window.accountCurrencies = JSON.parse('{!! json_encode($accountCurrencies) !!}');
     </script>
     {!! Theme::js('js/transactions.js') !!}

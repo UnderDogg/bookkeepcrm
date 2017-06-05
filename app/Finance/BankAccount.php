@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
-class Company extends Eloquent
+class BankAccount extends Eloquent
 {
 
     use Sortable, SearchableTrait;
+
+protected $table = 'bankaccounts';
+
 
     /**
      * The attributes that are mass assignable.
