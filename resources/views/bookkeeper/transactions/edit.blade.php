@@ -48,7 +48,8 @@ $currentRoute = 'bookkeeper.transactions.index';
 
                 <div class="related-search">
 
-                    <input class="related-search__search" type="text" name="_relatedsearch" placeholder="{{ trans('tags.type_to_add') }}" autocomplete="off">
+                    <input class="related-search__search" type="text" name="_relatedsearch"
+                           placeholder="{{ trans('tags.type_to_add') }}" autocomplete="off">
                     <p class="related-search__hint">{{ trans('tags.choose_from_results_to_add') }}</p>
 
                     <ul class="related-search__results">
@@ -73,6 +74,8 @@ $currentRoute = 'bookkeeper.transactions.index';
     <script>
         window.transactionModal = false;
         window.locale = '{{ env('APP_LOCALE') }}';
+        window.currentBankAccount = '{{ $currentBankAccountId or get_default_bankaccount() }}';
+        window.currentCompany = '{{ $currentCompanyId or get_default_company() }}';
         window.bankaccountCurrencies = JSON.parse('{!! json_encode($bankaccountCurrencies) !!}');
     </script>
     {!! Theme::js('js/transactions.js') !!}

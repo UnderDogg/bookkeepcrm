@@ -10,7 +10,8 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 class AuthController extends Controller
 {
 
-    use AuthenticatesUsers, ThrottlesLogins;
+    //ThrottlesLogins
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login / registration.
@@ -26,7 +27,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'getLogout']);
 
         $this->redirectTo = route('bookkeeper.overview');
     }

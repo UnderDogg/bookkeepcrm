@@ -10,4 +10,4 @@
     @parent
 @endsection
 
-@include('transactions.contents', ['currentAccountId' => $bankaccount->getKey()])
+@include('transactions.contents', ['currentBankAccountId' => $bankaccount->getKey()])

@@ -6,20 +6,15 @@
                 href="#" id="incomeButton" class="transaction-buttons__button transaction-buttons__button--income"></a>
     </div>
 
-
-    @include('transactions.modal')
+    @include('bankaccounts.bankmodal')
 @endsection
 
 
 @section('scripts')
     @parent
-
-    {{--window.bankaccountCurrencies = JSON.parse('{!! json_encode($bankaccountCurrencies) !!}');--}}
-
     <script>
-        window.bankaccountModal = true;
-        window.locale = '{{ env('APP_LOCALE') }}';
-        window.currentBankAccount = '{{ $currentBankAccountId or get_default_bankaccount() }}';
+        window.transactionModal = true;
+
     </script>
     {!! Theme::js('js/transactions.js') !!}
 @endsection

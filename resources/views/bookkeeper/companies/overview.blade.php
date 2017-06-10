@@ -15,4 +15,4 @@ $currentRoute = 'bookkeeper.companies.index';
     @include('overview.chart')
 @endsection
 
-@include('transactions.create', ['currentAccountId' => $bankaccount->getKey()])
+@include('transactions.create', ['currentBankAccountId' => $bankaccount->getKey()])

@@ -105,7 +105,6 @@ if (!function_exists('get_bankaccounts_list')) {
 }
 
 
-
 if (!function_exists('get_default_company')) {
     /**
      * Returns the default company

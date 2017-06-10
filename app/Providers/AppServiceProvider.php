@@ -3,6 +3,7 @@
 namespace Bookkeeper\Providers;
 
 use Bookkeeper\Bookkeeping\Company;
+use Bookkeeper\Bookkeeping\BankAccount;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -64,11 +65,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('transactions.create', function ($view) {
-            $view->with('accountCurrencies', Company::all()
+            $view->with('bankaccountCurrencies', BankAccount::all()
                 ->pluck('currency', 'id')->toArray());
         });
         view()->composer('transactions.edit', function ($view) {
-            $view->with('accountCurrencies', Company::all()
+            $view->with('bankaccountCurrencies', BankAccount::all()
                 ->pluck('currency', 'id')->toArray());
         });
     }

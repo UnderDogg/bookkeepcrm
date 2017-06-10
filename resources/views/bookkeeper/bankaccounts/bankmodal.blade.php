@@ -6,7 +6,7 @@
 
             <div class="scroller">
                 <div>
-                    <h4 class="modal__heading modal__heading--success">{!! trans('transactions.add_income') !!}</h4>
+                    <h4 class="modal__heading modal__heading--success">Add Bankaccount</h4>
                     <h4 class="modal__heading modal__heading--danger">{!! trans('transactions.add_expense') !!}</h4>
                     <p class="transaction-modal__flash" id="transactionFlashMessage"></p>
 
