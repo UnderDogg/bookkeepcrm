@@ -11,6 +11,6 @@ $currentRoute = 'bookkeeper.bankaccounts.index';
 
 
     {!! header_action_open('bankaccountsnew', 'header__action--right') !!}
-    {!! action_button(route('bookkeeper.bankaccounts.create'), 'icon-list-add') !!}
+    <a href="#" id="incomeButton" class="transaction-buttons__button transaction-buttons__button--income"></a>
     {!! header_action_close() !!}
 @endsection

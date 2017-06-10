@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include('bankaccountstabs', [
+    @include('bankaccounts.tabs', [
         'currentRoute' => 'bookkeeper.bankaccounts.edit',
         'currentKey' => $bankaccount->getKey()
     ])

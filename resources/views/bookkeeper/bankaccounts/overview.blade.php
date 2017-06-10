@@ -7,7 +7,7 @@ $currentRoute = 'bookkeeper.bankaccounts.index';
 @endphp
 
 @section('content')
-    @include('bankaccountstabs', [
+    @include('bankaccounts.tabs', [
         'currentRoute' => 'bookkeeper.bankaccounts.overview',
         'currentKey' => $bankaccount->getKey()
     ])

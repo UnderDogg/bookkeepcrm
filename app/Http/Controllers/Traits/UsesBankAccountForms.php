@@ -4,9 +4,9 @@ namespace Bookkeeper\Http\Controllers\Traits;
 
 
 use Illuminate\Http\Request;
-use Bookkeeper\Bookkeeping\Company;
+use Bookkeeper\Bookkeeping\BankAccount;
 
-trait UsesAccountForms
+trait UsesBankAccountForms
 {
 
     /**
@@ -33,7 +33,7 @@ trait UsesAccountForms
      * @param Company $bankaccount
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditForm($id, Company $bankaccount)
+    protected function getEditForm($id, BankAccount $bankaccount)
     {
         return $this->form('Bookkeeper\Html\Forms\Companies\CreateEditForm', [
             'method' => 'PUT',

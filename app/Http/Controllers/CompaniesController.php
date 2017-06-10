@@ -6,14 +6,14 @@ namespace Bookkeeper\Http\Controllers;
 
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Bookkeeping\Company;
-use Bookkeeper\Http\Controllers\Traits\UsesAccountForms;
+use Bookkeeper\Http\Controllers\Traits\UsesCompanyForms;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 
 class CompaniesController extends BookkeeperController
 {
 
-    use BasicResource, UsesAccountForms;
+    use BasicResource, UsesCompanyForms;
 
     /**
      * Self model path required for ModifiesPermissions
@@ -30,15 +30,15 @@ class CompaniesController extends BookkeeperController
      * @param int $id
      * @return Response
      */
-    public function transactions($id)
+    /*public function transactions($id)
     {
-        $bankaccount = Company::findOrFail($id);
+        $company = Company::findOrFail($id);
 
-        $transactions = $bankaccount->transactions()
+        $transactions = $company->transactions()
             ->sortable()->paginate();
 
         return $this->compileView('companies.transactions', compact('company', 'transactions'), trans('transactions.title'));
-    }
+    }*/
 
     /**
      * Shows overview for the company.
@@ -48,20 +48,21 @@ class CompaniesController extends BookkeeperController
      */
     public function overview($id)
     {
-        $bankaccount = Company::findOrFail($id);
+        $company = Company::findOrFail($id);
 
         $start = Carbon::now()->endOfMonth()->subYear()->addSecond();
         $end = Carbon::now()->endOfMonth();
 
-        $transactions = $bankaccount->transactions()
+        /*$transactions = $company->transactions()
             ->whereReceived(1)
             ->whereBetween('created_at', [$start, $end])
-            ->get();
+            ->get();*/
 
-        $statistics = (new Cruncher())
-            ->compileAccountStatisticsFor($transactions, $bankaccount, $start, $end);
+        /*$statistics = (new Cruncher())
+            ->compileAccountStatisticsFor($transactions, $company, $start, $end);*/
+        //'statistics'
 
-        return $this->compileView('companies.overview', compact('company', 'statistics'), trans('overview.index'));
+        return $this->compileView('companies.overview', compact('company'), trans('overview.index'));
     }
 
 }

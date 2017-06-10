@@ -6,14 +6,14 @@ namespace Bookkeeper\Http\Controllers;
 
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Bookkeeping\BankAccount;
-use Bookkeeper\Http\Controllers\Traits\UsesAccountForms;
+use Bookkeeper\Http\Controllers\Traits\UsesBankAccountForms;
 use Bookkeeper\Support\Currencies\Cruncher;
 use Carbon\Carbon;
 
 class BankAccountsController extends BookkeeperController
 {
 
-    use BasicResource, UsesAccountForms;
+    use BasicResource, UsesBankAccountForms;
 
     /**
      * Self model path required for ModifiesPermissions

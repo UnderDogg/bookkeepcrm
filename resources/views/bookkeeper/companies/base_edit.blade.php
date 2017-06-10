@@ -7,7 +7,7 @@ $currentRoute = 'bookkeeper.companies.index';
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => $bankaccount->name . ': ' . currency_string_for($bankaccount->getBalance(), $bankaccount),
+        'headerTitle' => $company->name . ': ',
         'headerHint' => link_to_route('bookkeeper.companies.index', uppercase(trans('companies.title')))
     ])
 @endsection

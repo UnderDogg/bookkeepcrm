@@ -9,10 +9,9 @@ $currentRoute = 'bookkeeper.companies.index';
 @section('content')
     @include('companies.tabs', [
         'currentRoute' => 'bookkeeper.companies.overview',
-        'currentKey' => $bankaccount->getKey()
+        'currentKey' => $company->getKey()
     ])
-
-    @include('overview.chart')
 @endsection
 
-@include('transactions.create', ['currentBankAccountId' => $bankaccount->getKey()])
+{{--
+@include('transactions.create', ['currentBankAccountId' => $bankaccount->getKey()])--}}

@@ -7,7 +7,7 @@
 @section('content')
     @include('companies.tabs', [
         'currentRoute' => 'bookkeeper.companies.edit',
-        'currentKey' => $bankaccount->getKey()
+        'currentKey' => $company->getKey()
     ])
 
     @include('partials.form')

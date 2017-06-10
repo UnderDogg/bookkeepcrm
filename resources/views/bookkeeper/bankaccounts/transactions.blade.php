@@ -2,7 +2,7 @@
 <?php $_withForm = false; $contentsListModifier = 'content-list-container--separated'; ?>
 
 @section('content')
-    @include('bankaccountstabs', [
+    @include('bankaccounts.tabs', [
         'currentRoute' => 'bookkeeper.bankaccounts.transactions',
         'currentKey' => $bankaccount->getKey()
     ])
