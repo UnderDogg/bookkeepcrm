@@ -30,4 +30,5 @@
     @include('partials.pagination', ['paginator' => $people])
 @endsection
 
-@include('people.create')
+{{--
+@include('people.create')--}}

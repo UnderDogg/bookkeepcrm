@@ -13,5 +13,5 @@ $currentRoute = 'bookkeeper.people.index';
 @endsection
 
 @section('content')
-    @include('partials.form')
+    {{--@include('partials.form')--}}
 @endsection
