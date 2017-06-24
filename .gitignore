@@ -1,10 +1,14 @@
-/vendor
-/node_modules
-/public/storage
+# Please try and keep this file organized by alphabetical order. Single files first, then directories.
+/composer.lock
+*.DS_Store
+.env
 Homestead.yaml
 Homestead.json
-.env
-*.DS_Store
 /.idea
-.env
-/composer.lock
+/node_modules
+/public
+/storage
+/vendor
+
+
+
